@@ -2,57 +2,98 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="CloseWant" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>О нас | CloseWant</title>
-  <link rel="stylesheet" href="Style.css">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="container">
+<body class="d-flex flex-column min-vh-100">
 
-    <!-- Header -->
-    <div class="item header">
-      <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Логотип" class="logo">
-      <span class="shop-name">CloseWant</span>
-      <nav class="nav">
-        <a href="index.html">Главная</a>
-        <a href="catalog.html">Каталог</a>
-        <a href="about.html">О нас</a>
-        <a href="contact.html">Контакты</a>
-      </nav>
-      <input type="text" placeholder="Поиск..." class="search">
-      <a href="#" class="icon">🛒</a>
-      <a href="#" class="icon">👤</a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center fw-bold text-primary" href="index.html">
+        <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Logo" class="me-2" style="width:50px; height:50px; border-radius:10px;">
+        CloseWant
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+          <li class="nav-item"><a class="nav-link active fw-bold" href="about.html">О нас</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center">
+        <input type="text" class="form-control me-2" placeholder="Поиск..." style="max-width:200px;">
+        <a href="#" class="fs-4 me-3 text-decoration-none">🛒</a>
+        <a href="#" class="fs-4 text-decoration-none">👤</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-center bg-light py-5 mb-4">
+    <div class="container">
+      <h1 class="display-5 fw-bold text-dark mb-3">О нас</h1>
+      <p class="lead text-muted">CloseWant — мода, рожденная из стиля, комфорта и уверенности.</p>
+    </div>
+  </section>
+
+  <!-- About Content -->
+  <main class="container mb-5">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="depositphotos_153233456-stock-photo-who-we-are-concept-on.jpg" alt="About us" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h2 class="fw-bold mb-3">Кто мы</h2>
+        <p>CloseWant — это современный магазин одежды, созданный с любовью к стилю и вниманием к деталям. 
+        Мы предлагаем коллекции, вдохновлённые городским ритмом, эстетикой и индивидуальностью.</p>
+
+        <p>Наша команда подбирает вещи, которые отражают тренды, комфорт и качество. Мы верим, что мода — это не просто одежда, а способ выразить себя.</p>
+      </div>
     </div>
 
-    <!-- Sidebar -->
-    <div class="item sidebar">
-      <h3>Навигация</h3>
-      <ul>
-        <li><a href="catalog.html">Каталог</a></li>
-        <li><a href="about.html">О нас</a></li>
-        <li><a href="contact.html">Контакты</a></li>
-      </ul>
+    <div class="row mt-5 align-items-center flex-md-row-reverse">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="fashion_team_collaboration.jpg" alt="Our mission" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h2 class="fw-bold mb-3">Наша миссия</h2>
+        <p>Мы стремимся сделать стиль доступным каждому. В CloseWant вы найдёте одежду на все случаи жизни: от повседневных образов до особенных мероприятий.</p>
+        <p>Наша миссия — вдохновлять людей быть уверенными, красивыми и собой через моду.</p>
+      </div>
     </div>
+  </main>
 
-    <!-- Content -->
-    <div class="item content">
-      <img src="depositphotos_153233456-stock-photo-who-we-are-concept-on.jpg" alt="who are we" class="logo">
-      <h1 style="z-index: 2;">О нас</h1>
-      <p style="z-index: 2;">CloseWant — это современный магазин одежды, созданный с любовью к стилю и комфорту. 
-         Наша цель — предлагать качественные вещи, которые помогут каждому чувствовать себя уверенно и стильно.</p>
-      <p style="z-index: 2;">Мы работаем напрямую с проверенными поставщиками и уделяем внимание каждой детали — от выбора тканей до упаковки заказа.</p>
-      
-      <h2 style="z-index: 2;">Наша миссия</h2>
-      <p style="z-index: 2;">Мы стремимся сделать моду доступной и удобной для всех. CloseWant — это место, где можно найти одежду 
-         для любого случая: от повседневных образов до вечерних нарядов.</p>
+  <!-- Team Section -->
+  <section class="bg-dark text-white py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-4">Наша команда</h2>
+      <p class="text-light mb-4">Мы — молодая команда энтузиастов, объединённых страстью к дизайну и моде.</p>
+      <div class="row justify-content-center">
+        <div class="col-md-3 mb-3">
+          <img src="team_member1.jpg" class="img-fluid rounded-circle mb-2" alt="Founder">
+          <h6 class="fw-bold mb-0">Nurdaulet Omar</h6>
+          <small>Основатель проекта</small>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Footer -->
-    <div class="item footer">
-      <p>© 2025 CloseWant | Все права защищены</p>
-      <p>Команда проекта: Nurdaulet Omar</p>
-    </div>
+  <!-- Footer -->
+  <footer class="bg-light text-center py-3 mt-auto border-top">
+    <p class="mb-0">© 2025 CloseWant | Все права защищены</p>
+    <p class="mb-0">Команда проекта: Nurdaulet Omar</p>
+  </footer>
 
-  </div>
 </body>
 </html>

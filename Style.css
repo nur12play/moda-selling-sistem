@@ -1,503 +1,195 @@
-.container {
-  display: grid;
-  grid-template-areas:
-    "header header header"
-    "sidebar content content"
-    "footer footer footer";
-  grid-template-columns: 250px 1fr 1fr;
-  grid-template-rows: auto 1fr auto;
-  grid-gap: 10px;
-  padding: 10px;
-  min-height: 100vh;
-  background-color: #fafafa;
+/* ==============================
+   GLOBAL STYLES
+============================== */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  scroll-behavior: smooth;
 }
 
-.item {
-  background-color: #f4f4f4;
-  border: 1px solid #ccc;
-  padding: 20px;
-}
-
-/* === HEADER === */
-.item:nth-child(1) {
-  grid-area: header;
-}
-
-.header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 80px;
-  background: #191010;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.logo {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.15;
-  z-index: 0;
-  object-fit: cover;
-  pointer-events: none;
-}
-
-.shop-name,
-.nav,
-.search,
-.icon {
-  position: relative;
-  z-index: 2;
-  margin-left: 20px;
-  color: white;
-}
-
-.shop-name {
-  font-size: 28px;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-}
-
-.nav {
-  margin-left: auto;
-}
-.nav a {
-  color: white;
-  margin: 0 12px;
+a {
   text-decoration: none;
+}
+
+/* ==============================
+   NAVBAR
+============================== */
+.navbar {
+  background-color: #fff !important;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.navbar-brand img {
+  transition: transform 0.3s ease;
+}
+.navbar-brand img:hover {
+  transform: scale(1.05);
+}
+
+.nav-link {
+  color: #333 !important;
   font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  padding: 8px 15px !important;
 }
-.nav a:hover {
-  color: #f9c74f;
-  }
+.nav-link:hover,
+.nav-link.active {
+  background-color: #0d6efd !important;
+  color: #fff !important;
+}
 
-.search {
-  margin-left: 20px;
-  padding: 6px 10px;
+.navbar .form-control {
+  border-radius: 25px;
+  transition: box-shadow 0.3s ease;
+}
+.navbar .form-control:focus {
+  box-shadow: 0 0 6px rgba(13, 110, 253, 0.5);
+}
+
+.navbar a.fs-4 {
+  color: #0d6efd;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.navbar a.fs-4:hover {
+  color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* ==============================
+   HERO SECTION
+============================== */
+section.bg-light {
+  background: linear-gradient(135deg, #f0f4ff, #ffffff);
+}
+
+/* ==============================
+   CARDS / CATALOG
+============================== */
+.card {
   border: none;
-  border-radius: 4px;
-}
-
-.icon {
-  margin-left: 15px;
-  font-size: 22px;
-  color: white;
-  cursor: pointer;
-}
-.icon:hover {
-  color: #f9c74f;
-}
-
-/* === SIDEBAR === */
-.item:nth-child(2) {
-  grid-area: sidebar;
-}
-
-.sidebar {
-  background: #fff;
-  padding: 20px;
-  border-right: 1px solid #ddd;
-}
-
-.sidebar h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-.sidebar li {
-  margin: 8px 0;
-}
-.sidebar a {
-  color: #333;
-  text-decoration: none;
-}
-.sidebar a:hover {
-  color: #d62828;
-  font-weight: bold;
-}
-
-/* === CONTENT === */
-.item:nth-child(3) {
-  grid-area: content;
-}
-
-.content {
-  padding: 20px;
-  background: #fff;
-}
-
-.content h1 {
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-
-.highlight {
-  color: #d62828;
-  font-weight: bold;
-}
-
-.main-image {
-  width: 100%;
-  max-width: 600px;
   border-radius: 12px;
-  margin: 20px 0;
-  display: block;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
-/* === FORM === */
-.subscribe-form {
-  margin-top: 20px;
-  padding: 15px;
-  background: #f4f4f4;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.card img {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: transform 0.4s ease;
 }
-.subscribe-form h3 {
-  margin-bottom: 10px;
+.card img:hover {
+  transform: scale(1.03);
 }
-.subscribe-form input,
-.subscribe-form textarea {
-  padding: 10px;
-  margin: 5px 0;
-  width: calc(100% - 22px);
-  border: 1px solid #999;
-  border-radius: 5px;
+
+.card-title {
+  color: #0d6efd;
+  font-weight: 600;
 }
-.subscribe-form button {
-  padding: 10px 20px;
+
+.card-text {
+  color: #555;
+}
+
+/* ==============================
+   BUTTONS
+============================== */
+.btn-primary {
+  background-color: #0d6efd;
   border: none;
-  background: #191010;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+  border-radius: 25px;
+  padding: 10px 24px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
-.subscribe-form button:hover {
-  background: #f9844a;
-}
-
-/* === FOOTER === */
-.item:nth-child(4) {
-  grid-area: footer;
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
-.footer {
-  background: #191010;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
-  font-size: 14px;
+/* ==============================
+   ABOUT PAGE
+============================== */
+main h1,
+main h2 {
+  color: #0d6efd;
+  font-weight: 700;
 }
-
-.footer p {
-  margin: 5px 0;
+main h2 {
+  margin-top: 1.5rem;
 }
-
-/* === Общие стили (оставляем твои) === */
-.container {
-    display: grid;
-    grid-template-areas:
-        "header header header"
-        "sidebar content content"
-        "footer footer footer";
-    grid-gap: 10px;
-    padding: 10px;
-}
-
-.item {
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Header */
-.item:nth-child(1) { grid-area: header; }
-.header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 80px;
-    background: #191010;
-    overflow: hidden;
-    z-index: 1;
-}
-
-
-
-.shop-name,
-.nav,
-.search,
-.icon {
-    position: relative;
-    z-index: 2;
-    margin-left: 20px;
-    color: white;
-}
-
-/* Sidebar */
-.item:nth-child(2) { grid-area: sidebar; }
-.sidebar {
-    background: #fff;
-    border-radius: 8px;
-    text-align: left;
-}
-.sidebar h3 {
-    margin-bottom: 10px;
-}
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-.sidebar ul li {
-    margin: 8px 0;
-}
-.sidebar ul li a {
-    color: #333;
-    text-decoration: none;
-}
-.sidebar ul li a:hover {
-    color: #ff6600;
-}
-
-/* Content */
-.item:nth-child(3) { grid-area: content; }
-.content {
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-}
-.content h2 {
-    margin-bottom: 20px;
-}
-
-/* Сетка товаров */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
-.product-card {
-    background: #fafafa;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-.product-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-.product-card h3 {
-    margin: 10px 0 5px;
-}
-.product-card p {
-    color: #666;
-    margin-bottom: 10px;
-}
-.product-card button {
-    background: #191010;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s ease;
-}
-.product-card button:hover {
-    background: #ff6600;
-}
-
-/* Footer */
-.item:nth-child(4) { grid-area: footer; }
-.footer {
-    background: #191010;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    border-radius: 8px;
-}
-
-/* ===========================
-   About Page Styles
-   =========================== */
-
-.content {
-  background: #fff;
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  text-align: left;
-}
-
-.content h1 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #191010;
-  text-align: center;
-}
-
-.content h2 {
-  font-size: 1.5rem;
-  margin-top: 25px;
-  margin-bottom: 10px;
-  color: #333;
-  border-left: 4px solid #ff6600;
-  padding-left: 10px;
-}
-
-.content p {
-  line-height: 1.6;
-  margin-bottom: 15px;
-  text-align: justify;
-  font-size: 1rem;
+main p {
   color: #444;
+  line-height: 1.7;
+  font-size: 1.05rem;
 }
 
-/* Стили для боковой панели */
-.sidebar {
-  background: #f9f9f9;
+main img {
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+main img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ==============================
+   CONTACT PAGE
+============================== */
+form input,
+form textarea {
+  border-radius: 20px !important;
+  transition: box-shadow 0.3s ease;
+}
+form input:focus,
+form textarea:focus {
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.4);
+}
+
+iframe {
   border-radius: 10px;
-  padding: 20px;
-  text-align: left;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
-.sidebar h3 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  color: #191010;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar ul li {
-  margin-bottom: 10px;
-}
-
-.sidebar ul li a {
-  text-decoration: none;
-  color: #191010;
-  transition: color 0.2s ease;
-}
-
-.sidebar ul li a:hover {
-  color: #ff6600;
-}
-
-/* Footer */
-.footer {
-  background: #191010;
-  color: #fff;
-  border-radius: 10px;
-  padding: 15px;
+/* ==============================
+   FOOTER
+============================== */
+footer {
   font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  background-color: #f1f1f1;
+  color: #333;
 }
-.footer p {
-  margin: 5px 0;
-}
-
-/* Общие стили для contact.html */
-.contact-container {
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 40px;
+footer p {
+  margin: 4px 0;
 }
 
-/* Левая часть – контакты */
-.contact-info {
-    background: #191010;
-    color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+/* ==============================
+   RESPONSIVENESS
+============================== */
+@media (max-width: 992px) {
+  .navbar .form-control {
+    max-width: 150px;
+  }
 }
 
-.contact-info h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.contact-info p {
-    margin: 10px 0;
-    font-size: 16px;
-}
-
-/* Правая часть – форма */
-.contact-form {
-    background: #f4f4f4;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.contact-form h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.contact-form label {
-    display: block;
-    font-weight: bold;
-    margin: 10px 0 5px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    font-size: 16px;
-    transition: border 0.3s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: #191010;
-    outline: none;
-}
-
-.contact-form button {
-    background: #191010;
-    color: white;
-    padding: 12px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.contact-form button:hover {
-    background: #333;
-}
-
-/* Для мобильных */
 @media (max-width: 768px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
+  .navbar .nav-link {
+    text-align: center;
+  }
+  main h1 {
+    font-size: 1.6rem;
+  }
+  main p {
+    font-size: 1rem;
+  }
+  .card img {
+    height: auto;
+  }
 }
