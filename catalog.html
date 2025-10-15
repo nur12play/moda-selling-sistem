@@ -166,6 +166,31 @@
     <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
     <p class="mb-0">Команда проекта: Nurdaulet Omar</p>
   </footer>
+  <!-- Кнопка смены фона -->
+<button id="changeColorBtn" class="btn btn-secondary position-fixed bottom-0 end-0 m-4 shadow">
+  🎨 Сменить фон
+</button>
+
+<!-- Popup окно при покупке -->
+<div id="buyPopup" class="popup-form">
+  <div class="popup-content">
+    <span id="closeBuyPopup" class="close-btn">&times;</span>
+    <h4>Спасибо за покупку!</h4>
+    <p>Ваш заказ успешно оформлен.</p>
+    <button id="closePopupBtn" class="btn btn-primary mt-2">OK</button>
+  </div>
+</div>
+
+<!-- Вывод текущего времени -->
+<script>
+  const footer = document.querySelector('footer');
+  const dateTime = document.createElement('p');
+  dateTime.id = 'currentDateTime';
+  dateTime.classList.add('text-info', 'mt-2');
+  footer.appendChild(dateTime);
+</script>
+
+<script src="script.js"></script>
 
 </body>
 </html>

@@ -130,13 +130,35 @@
     </div>
   </section>
 
-  <!-- Подвал -->
-  <footer class="text-white text-center py-4">
-    <div class="container">
-      <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
-      <p class="mb-0">Проект выполнен: Nurdaulet Omar</p>
-    </div>
-  </footer>
+ <!-- Подвал -->
+<footer class="text-white text-center py-4">
+  <div class="container">
+    <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
+    <p class="mb-0">Проект выполнен: Nurdaulet Omar</p>
+    <p id="currentDateTime" class="mt-2 text-info"></p>
+  </div>
+</footer>
+
+<!-- Кнопка смены фона -->
+<button id="changeColorBtn" class="btn btn-secondary position-fixed bottom-0 end-0 m-4 shadow">
+  Сменить фон
+</button>
+
+<!-- Popup форма подписки -->
+<div id="popupForm" class="popup-form">
+  <div class="popup-content">
+    <span id="closePopup" class="close-btn">&times;</span>
+    <h4>Подпишитесь на новости</h4>
+    <form id="subscribeForm">
+      <input type="email" id="emailInput" placeholder="Введите email" required>
+      <button type="submit" class="btn btn-primary mt-2">Подписаться</button>
+    </form>
+    <p id="errorMsg" class="text-danger mt-2"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
 
 </body>
 </html>
