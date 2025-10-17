@@ -107,7 +107,7 @@ window.addEventListener("click", (e) => {
 // CHANGE BACKGROUND
 const colorBtn = document.getElementById("changeColorBtn");
 if (colorBtn) {
-  const colors = ["#f8f9fa", "#dbeafe", "#fff1f2", "#e9d5ff", "#fef9c3", "#dcfce7"];
+  const colors = ["#d9fefeff", "#dbeafe", "#fff1f2", "#e9d5ff", "#fef9c3", "#dcfce7"];
   let current = 0;
 
   colorBtn.addEventListener("click", () => {
@@ -136,3 +136,27 @@ function updateDateTime() {
 
 updateDateTime();
 setInterval(updateDateTime, 1000);
+
+// Получаем элементы
+const popupSuccess = document.getElementById('popupSuccess');
+const closeSuccess = document.getElementById('closeSuccess');
+const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+
+// Функция для закрытия popup
+function closePopupSuccess() {
+  popupSuccess.style.display = 'none';
+}
+
+// Закрытие по клику на крестик
+closeSuccess.addEventListener('click', closePopupSuccess);
+
+// Закрытие по клику на кнопку OK
+closeSuccessBtn.addEventListener('click', closePopupSuccess);
+
+// (Дополнительно) Закрытие при клике вне popup
+window.addEventListener('click', function (event) {
+  if (event.target === popupSuccess) {
+    closePopupSuccess();
+  }
+});
+
