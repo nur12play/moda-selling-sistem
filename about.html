@@ -1,23 +1,97 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>О нас | CloseWant</title>
 
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="d-flex flex-column min-vh-100">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    .light-theme {
+      background-color: #f4f4f4;
+      color: #111;
+    }
+
+    .navbar {
+      background-color: #000 !important;
+    }
+
+    .navbar .nav-link {
+      color: #fff !important;
+    }
+
+    .navbar .nav-link.active {
+      background-color: #d4af37 !important;
+      color: #000 !important;
+      border-radius: 8px;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+        url("depositphotos_153233456-stock-photo-who-we-are-concept-on.jpg") center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn-gold {
+      background-color: #d4af37;
+      border: none;
+      color: #000;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-gold:hover {
+      background-color: #c09b2e;
+    }
+
+    .hidden-text {
+      display: none;
+      margin-top: 15px;
+      transition: all 0.5s ease;
+    }
+
+    .visible {
+      display: block;
+    }
+
+    footer {
+      background-color: #000;
+      color: #bbb;
+    }
+  </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <!-- Навигация -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center fw-bold text-primary" href="index.html">
-        <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Logo" class="me-2" style="width:50px; height:50px; border-radius:10px;">
+      <a class="navbar-brand d-flex align-items-center fw-bold text-warning" href="index.html">
+        <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Logo" class="me-2" style="width: 50px; height: 50px; border-radius: 10px;" />
         CloseWant
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -32,123 +106,113 @@
         </ul>
       </div>
       <div class="d-flex align-items-center">
-        <input type="text" class="form-control me-2" placeholder="Поиск..." style="max-width:200px;">
-        <a href="#" class="fs-4 me-3 text-decoration-none">🛒</a>
-        <a href="#" class="fs-4 text-decoration-none">👤</a>
+        <input type="text" class="form-control me-2" placeholder="Поиск..." style="max-width: 200px;" />
+        <a href="#" class="fs-4 me-3 text-decoration-none text-white">🛒</a>
+        <a href="#" class="fs-4 text-decoration-none text-white">👤</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="text-center bg-light py-5 mb-4">
-    <div class="container">
-      <h1 class="display-5 fw-bold text-dark mb-3">О нас</h1>
-      <p class="lead text-muted">CloseWant — мода, рожденная из стиля, комфорта и уверенности.</p>
-    </div>
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="display-5 fw-bold">О нас</h1>
+    <p class="lead">Мода, рожденная из стиля, комфорта и уверенности.</p>
   </section>
 
-  <!-- About Content -->
-  <main class="container mb-5">
-    <div class="row align-items-center">
+  <!-- Основной контент -->
+  <main class="container my-5">
+    <div class="row align-items-center mb-5">
       <div class="col-md-6 mb-4 mb-md-0">
-        <img src="depositphotos_153233456-stock-photo-who-we-are-concept-on.jpg" alt="About us" class="img-fluid rounded shadow">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqgWFooCdbMiCuKh7FySMgjUG5AzqgB7CONQ&s"
+             class="img-fluid rounded shadow" alt="Наша миссия" />
       </div>
       <div class="col-md-6">
-        <h2 class="fw-bold mb-3">Кто мы</h2>
-        <p>CloseWant — это современный магазин одежды, созданный с любовью к стилю и вниманием к деталям. 
-        Мы предлагаем коллекции, вдохновлённые городским ритмом, эстетикой и индивидуальностью.</p>
-
-        <p>Наша команда подбирает вещи, которые отражают тренды, комфорт и качество. Мы верим, что мода — это не просто одежда, а способ выразить себя.</p>
+        <h2 class="fw-bold mb-3 text-warning">Наша история</h2>
+        <p>
+          CloseWant родился из идеи объединить моду, комфорт и уверенность в одном бренде. 
+          Мы создаём одежду для тех, кто ценит качество и индивидуальность.
+        </p>
+        <div id="extraText" class="hidden-text">
+          <p>
+            Каждый элемент коллекции создаётся с любовью и вниманием к деталям. 
+            Мы стремимся вдохновлять людей через стиль и помогать им выражать себя.
+          </p>
+        </div>
+        <button id="readMoreBtn" class="btn btn-gold mt-2">Читать далее</button>
       </div>
     </div>
 
-    <div class="row mt-5 align-items-center flex-md-row-reverse">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <img src="fashion_team_collaboration.jpg" alt="Our mission" class="img-fluid rounded shadow">
-      </div>
-      <div class="col-md-6">
-        <h2 class="fw-bold mb-3">Наша миссия</h2>
-        <p>Мы стремимся сделать стиль доступным каждому. В CloseWant вы найдёте одежду на все случаи жизни: от повседневных образов до особенных мероприятий.</p>
-        <p>Наша миссия — вдохновлять людей быть уверенными, красивыми и собой через моду.</p>
+    <!-- Команда -->
+    <div class="text-center my-5">
+      <h2 class="fw-bold text-warning mb-4">Наша команда</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-3 mb-3">
+          <img src="team_member1.jpg" class="img-fluid rounded-circle mb-2 shadow" alt="Founder" />
+          <h6 class="fw-bold mb-0">Kasymkhan Erasyl</h6>
+          <small>Основатель проекта</small>
+        </div>
       </div>
     </div>
   </main>
 
-  <!-- Team Section -->
-  <section class="bg-dark text-white py-5">
-    <div class="container text-center">
-      <h2 class="fw-bold mb-4">Наша команда</h2>
-      <p class="text-light mb-4">Мы — молодая команда энтузиастов, объединённых страстью к дизайну и моде.</p>
-      <div class="row justify-content-center">
-        <div class="col-md-3 mb-3">
-          <img src="team_member1.jpg" class="img-fluid rounded-circle mb-2" alt="Founder">
-          <h6 class="fw-bold mb-0">Nurdaulet Omar</h6>
-          <small>Основатель проекта</small>
+  <!-- FAQ -->
+  <section class="container mb-5">
+    <h2 class="text-center fw-bold text-warning mb-4">FAQ</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+            Как оформить заказ?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Добавьте товар в корзину и следуйте инструкциям на экране.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+            Есть ли доставка по регионам?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Да, доставка доступна по всему Казахстану.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+            Как связаться с поддержкой?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Напишите нам через форму на странице «Контакты» или по адресу support@closewant.kz.
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-light text-center py-3 mt-auto border-top">
-    <p class="mb-0">© 2025 CloseWant | Все права защищены</p>
+  <footer class="text-center py-4 mt-auto">
+    <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
     <p class="mb-0">Команда проекта: Nurdaulet Omar</p>
+    <p id="currentDateTime" class="text-warning mt-2"></p>
   </footer>
-  <!-- FAQ / Accordion Section -->
-<section class="container my-5">
-  <h2 class="text-center fw-bold text-primary mb-4">Часто задаваемые вопросы</h2>
 
-  <div class="accordion" id="faqAccordion">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-          Как оформить заказ?
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          Чтобы оформить заказ, выберите товар, добавьте его в корзину и следуйте инструкциям по оформлению покупки.
-        </div>
-      </div>
-    </div>
+  <!-- Кнопка смены темы -->
+  <button id="changeColorBtn" class="btn btn-gold position-fixed bottom-0 end-0 m-4 shadow">
+    🌙 Сменить тему
+  </button>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-          Есть ли доставка по регионам?
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          Да, мы доставляем по всем регионам Казахстана и сотрудничаем с надёжными курьерскими службами.
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-          Как связаться с поддержкой?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          Вы можете написать нам через форму обратной связи на странице «Контакты» или по email support@closewant.kz.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Кнопка смены фона -->
-<button id="changeColorBtn" class="btn btn-secondary position-fixed bottom-0 end-0 m-4 shadow">
-  🎨 Сменить фон
-</button>
-
-<!-- Отображение даты и времени -->
-<p id="currentDateTime" class="text-center text-muted mt-3"></p>
-
-<script src="script.js"></script>
-
+  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
 </body>
 </html>

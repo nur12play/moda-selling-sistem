@@ -1,164 +1,111 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Главная | CloseWant</title>
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    .hero-section {
-      background: url('fashion_banner.jpg') center/cover no-repeat;
-      color: rgb(33, 31, 31);
-      text-shadow: 0 2px 5px rgba(0,0,0,0.6);
-      height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .hero-section h1 {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-
-    .hero-section p {
-      font-size: 1.3rem;
-    }
-
-    .product-card img {
-      height: 250px;
-      object-fit: cover;
-    }
-
-    footer {
-      background-color: #111;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Шапка -->
-  <header class="bg-light border-bottom py-3 mb-0 sticky-top">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+  <!-- Header -->
+  <header class="bg-black py-3 sticky-top border-bottom border-secondary">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center text-white">
       <div class="d-flex align-items-center">
-        <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Логотип" class="me-2" style="width:60px; height:60px; border-radius:10px;">
-        <span class="fs-3 fw-bold text-primary">CloseWant</span>
+        <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Логотип" class="me-2 logo-img">
+        <span class="fs-3 fw-bold text-warning">CloseWant</span>
       </div>
 
       <nav class="nav nav-pills">
-        <a class="nav-link active" href="index.html">Главная</a>
-        <a class="nav-link" href="catalog.html">Каталог</a>
-        <a class="nav-link" href="about.html">О нас</a>
-        <a class="nav-link" href="contact.html">Контакты</a>
+        <a class="nav-link text-white active bg-warning text-black" href="index.html">Главная</a>
+        <a class="nav-link text-white" href="catalog.html">Каталог</a>
+        <a class="nav-link text-white" href="about.html">О нас</a>
+        <a class="nav-link text-white" href="contact.html">Контакты</a>
       </nav>
 
       <div class="d-flex align-items-center">
-        <input type="text" class="form-control me-2" placeholder="Поиск..." style="max-width:200px;">
-        <a href="#" class="fs-4 me-3 text-decoration-none">🛒</a>
-        <a href="#" class="fs-4 text-decoration-none">👤</a>
+        <input id="searchInput" type="text" class="form-control me-2" placeholder="Поиск..." style="max-width:200px;">
+        <button id="showTimeBtn" class="btn btn-outline-primary me-2">Показать время</button>
+        <a href="#" class="fs-4 me-3 text-decoration-none text-white">🛒</a>
+        <a href="#" class="fs-4 text-decoration-none text-white">👤</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero секция -->
+  <!-- Hero -->
   <section class="hero-section">
-    <h1>Новая коллекция 2025</h1>
+    <h1>Новая коллекция <span>2025</span></h1>
     <p>Стиль. Комфорт. Индивидуальность.</p>
-    <a href="catalog.html" class="btn btn-primary btn-lg mt-3">Смотреть коллекцию</a>
+    <div class="mt-3">
+      <a href="catalog.html" class="btn btn-primary btn-lg me-2">Смотреть коллекцию</a>
+      <a id="openPopupBtn" class="btn btn-outline-primary btn-lg">Подписаться</a>
+    </div>
+    <!-- Fact area (dynamic content example) -->
+    <div id="factBlock" class="mt-4 text-center">
+      <button id="factBtn" class="btn btn-outline-primary mt-3">Показать факт о моде</button>
+      <p id="factDisplay" class="mt-2"></p>
+    </div>
   </section>
 
-  <!-- Популярные товары -->
+  <!-- Popular products -->
   <section class="container my-5">
     <div class="text-center mb-4">
-      <h2 class="fw-bold text-primary">Популярные товары</h2>
+      <h2 class="fw-bold text-warning">Популярные товары</h2>
       <p class="text-muted">Откройте для себя стильные новинки сезона</p>
     </div>
 
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card product-card shadow-sm">
-          <img src="shop.webp" class="card-img-top" alt="Товар 1">
-          <div class="card-body text-center">
-            <h5 class="card-title">Белая рубашка Classic</h5>
-            <p class="text-muted">12 900 ₸</p>
-            <a href="#" class="btn btn-outline-primary">Купить</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card product-card shadow-sm">
-          <img src="shopping.webp" class="card-img-top" alt="Товар 2">
-          <div class="card-body text-center">
-            <h5 class="card-title">Пальто Urban Chic</h5>
-            <p class="text-muted">25 500 ₸</p>
-            <a href="#" class="btn btn-outline-primary">Купить</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card product-card shadow-sm">
-          <img src="download.jpg" class="card-img-top" alt="Товар 3">
-          <div class="card-body text-center">
-            <h5 class="card-title">Джинсы Slim Fit</h5>
-            <p class="text-muted">17 300 ₸</p>
-            <a href="#" class="btn btn-outline-primary">Купить</a>
-          </div>
-        </div>
-      </div>
+    <div id="productsRow" class="row g-4">
+      <!-- Products will be rendered here by script.js -->
     </div>
   </section>
 
-  <!-- Блок подписки -->
-  <section class="bg-light py-5">
-    <div class="container text-center">
-      <h3 class="mb-3">Подпишитесь на новости и скидки</h3>
-      <form class="d-flex flex-column flex-sm-row justify-content-center gap-2">
-        <input type="email" class="form-control" placeholder="Введите ваш email" required style="max-width: 300px;">
+  <!-- Subscribe block -->
+  <section class="bg-dark py-5 text-center">
+    <div class="container">
+      <h3 class="mb-3 text-warning">Подпишитесь на новости и скидки</h3>
+      <form class="d-flex flex-column flex-sm-row justify-content-center gap-2" id="subscribeInlineForm">
+        <input id="inlineEmail" type="email" class="form-control" placeholder="Введите ваш email" required style="max-width: 300px;">
         <button type="submit" class="btn btn-primary px-4">Подписаться</button>
       </form>
+      <p id="inlineFormMsg" class="mt-2 text-light"></p>
     </div>
   </section>
 
- <!-- Подвал -->
-<footer class="text-white text-center py-4">
-  <div class="container">
-    <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
-    <p class="mb-0">Проект выполнен: Nurdaulet Omar</p>
-    <p id="currentDateTime" class="mt-2 text-info"></p>
+  <!-- Footer -->
+  <footer class="text-center py-4">
+    <div class="container">
+      <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
+      <p class="mb-0">Проект выполнен: Nurdaulet Omar </p>
+      <p id="currentDateTime" class="mt-2 text-warning"></p>
+    </div>
+  </footer>
+
+  <!-- Theme change button -->
+  <button id="changeColorBtn" class="btn position-fixed bottom-0 end-0 m-4 shadow">Сменить тему</button>
+
+  <!-- Popup form -->
+  <div id="popupForm" class="popup-form" aria-hidden="true">
+    <div class="popup-content position-relative">
+      <span id="closePopup" class="close-btn">&times;</span>
+      <h4>Подпишитесь на новости</h4>
+      <form id="popupSubscribeForm">
+        <input type="email" id="emailInput" placeholder="Введите email" required class="form-control mb-2">
+        <button type="submit" class="btn btn-primary w-100">Подписаться</button>
+      </form>
+      <p id="errorMsg" class="text-danger mt-2"></p>
+    </div>
   </div>
-</footer>
 
-<!-- Кнопка смены фона -->
-<button id="changeColorBtn" class="btn btn-secondary position-fixed bottom-0 end-0 m-4 shadow">
-  Сменить фон
-</button>
+  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
-<!-- Popup форма подписки -->
-<div id="popupForm" class="popup-form">
-  <div class="popup-content">
-    <span id="closePopup" class="close-btn">&times;</span>
-    <h4>Подпишитесь на новости</h4>
-    <form id="subscribeForm">
-      <input type="email" id="emailInput" placeholder="Введите email" required>
-      <button type="submit" class="btn btn-primary mt-2">Подписаться</button>
-    </form>
-    <p id="errorMsg" class="text-danger mt-2"></p>
-  </div>
-</div>
-
-<script src="script.js"></script>
-
-
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+  <!-- Bootstrap JS (placed after custom if you don't need to override) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
