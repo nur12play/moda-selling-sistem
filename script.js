@@ -212,4 +212,11 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
     }
   });
+    // === 8. Демонстрация работы с DOM ===
+  const heading = document.querySelector("h1");
+  if (heading) {
+    heading.textContent = "Добро пожаловать в CloseWant!";
+    console.log("Текст заголовка изменён через DOM:", heading.textContent);
+  }
+
 });
