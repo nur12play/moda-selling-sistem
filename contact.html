@@ -12,13 +12,113 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    .light-theme {
+      background-color: #f4f4f4;
+      color: #111;
+    }
+
+    .navbar {
+      background-color: #000 !important;
+    }
+
+    .navbar .nav-link {
+      color: #fff !important;
+    }
+
+    .navbar .nav-link.active {
+      color: #000 !important;
+      background-color: #d4af37;
+      border-radius: 8px;
+    }
+
+    .card {
+      background-color: #1b1b1b;
+      color: #fff;
+      border: none;
+    }
+
+    .light-theme .card {
+      background-color: #fff;
+      color: #000;
+    }
+
+    footer {
+      background-color: #000;
+      color: #bbb;
+    }
+
+    .popup-form {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-form.active {
+      display: flex;
+    }
+
+    .popup-content {
+      background: #fff;
+      color: #000;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      animation: zoomIn 0.4s ease;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      color: red;
+    }
+
+    /* Анимация появления элементов */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-  <!-- Навбар -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+  <!-- Навигация -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center fw-bold text-primary" href="index.html">
+      <a class="navbar-brand d-flex align-items-center fw-bold text-warning" href="index.html">
         <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Logo" class="me-2" style="width:50px; height:50px; border-radius:10px;">
         CloseWant
       </a>
@@ -35,29 +135,29 @@
       </div>
       <div class="d-flex align-items-center">
         <input type="text" class="form-control me-2" placeholder="Поиск..." style="max-width:200px;">
-        <a href="#" class="fs-4 me-3 text-decoration-none">🛒</a>
-        <a href="#" class="fs-4 text-decoration-none">👤</a>
+        <a href="#" class="fs-4 me-3 text-decoration-none text-white">🛒</a>
+        <a href="#" class="fs-4 text-decoration-none text-white">👤</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="text-center bg-light py-5 mb-4 fade-in">
+  <!-- Hero -->
+  <section class="text-center py-5 mb-4 fade-in">
     <div class="container">
-      <h1 class="display-5 fw-bold text-dark mb-3">Свяжитесь с нами</h1>
-      <p class="lead text-muted">Мы всегда открыты для ваших идей, предложений и отзывов. Напишите нам — и мы обязательно ответим!</p>
+      <h1 class="display-5 fw-bold text-warning mb-3">Свяжитесь с нами</h1>
+      <p class="lead text-light">Мы всегда открыты для ваших идей, предложений и отзывов. Напишите нам — и мы обязательно ответим!</p>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Основной контент -->
   <main class="container mb-5">
     <div class="row align-items-start">
-      <!-- Contact Form -->
+      <!-- Форма обратной связи -->
       <div class="col-lg-6 mb-4 fade-in">
         <div class="card shadow-sm border-0">
           <div class="card-body p-4">
-            <h3 class="fw-bold mb-3">Форма обратной связи</h3>
-            <form>
+            <h3 class="fw-bold mb-3 text-warning">Форма обратной связи</h3>
+            <form id="contactForm">
               <div class="mb-3">
                 <label for="name" class="form-label">Ваше имя</label>
                 <input type="text" class="form-control" id="name" placeholder="Введите ваше имя" required>
@@ -79,10 +179,10 @@
         </div>
       </div>
 
-      <!-- Contact Info -->
+      <!-- Контактная информация -->
       <div class="col-lg-6 mb-4 fade-in">
         <div class="p-4">
-          <h3 class="fw-bold mb-3">Контактные данные</h3>
+          <h3 class="fw-bold mb-3 text-warning">Контактные данные</h3>
           <p class="text-muted">Свяжитесь с нами любым удобным способом — мы всегда на связи и рады помочь.</p>
 
           <ul class="list-unstyled">
@@ -93,17 +193,16 @@
 
           <div class="mt-4">
             <h5 class="fw-bold">Мы в соцсетях:</h5>
-            <a href="#" class="me-3 fs-4 text-primary text-decoration-none">📸</a>
-            <a href="#" class="me-3 fs-4 text-primary text-decoration-none">💬</a>
-            <a href="#" class="fs-4 text-primary text-decoration-none">📘</a>
+            <a href="#" class="me-3 fs-4 text-warning text-decoration-none">📸</a>
+            <a href="#" class="me-3 fs-4 text-warning text-decoration-none">💬</a>
+            <a href="#" class="fs-4 text-warning text-decoration-none">📘</a>
           </div>
 
           <div class="mt-5">
-            <h5 class="fw-bold mb-3">Наше местоположение</h5>
+            <h5 class="fw-bold mb-3 text-warning">Наше местоположение</h5>
             <iframe 
               src="https://www.google.com/maps?q=Астана,+Кайым+Мухамедханов+21/2&output=embed" 
-              width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
+              width="100%" height="250" style="border:0;" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
       </div>
@@ -111,26 +210,30 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-light text-center py-3 mt-auto border-top">
-    <p class="mb-0">© 2025 CloseWant | Все права защищены</p>
-    <p class="mb-0">Команда проекта: Nurdaulet Omar</p>
-    <p id="currentDateTime" class="text-info mt-2"></p>
+  <footer class="text-center py-4 mt-auto border-top">
+    <div class="container">
+      <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
+      <p class="mb-0">Команда проекта: Nurdaulet Omar</p>
+      <p id="currentDateTime" class="mt-2 text-warning"></p>
+    </div>
   </footer>
 
   <!-- Popup -->
   <div id="popupSuccess" class="popup-form">
-    <div class="popup-content text-center position-relative">
+    <div class="popup-content position-relative text-center">
       <span id="closeSuccess" class="close-btn">&times;</span>
       <h4 class="mb-3">Спасибо!</h4>
       <p>Ваше сообщение успешно отправлено 💌</p>
-      <button id="closeSuccessBtn" class="btn btn-primary mt-2">OK</button>
+      <button id="closeSuccessBtn" class="btn btn-primary mt-2" type="button">OK</button>
     </div>
   </div>
 
-  <!-- Кнопка смены фона -->
-  <button id="changeColorBtn" class="btn btn-secondary position-fixed bottom-0 end-0 m-4 shadow">
-     Сменить фон
+  <!-- Кнопка смены темы -->
+  <button id="changeColorBtn" class="btn btn-warning position-fixed bottom-0 end-0 m-4 shadow">
+     Сменить тему
   </button>
+
+  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
   <script src="script.js"></script>
 

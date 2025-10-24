@@ -77,6 +77,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+    // === 2.1. Кнопка "Показать время" (только на главной странице) ===
+  const showTimeBtn = document.getElementById("showTimeBtn");
+  const timeDisplay = document.createElement("p"); // создаём элемент для показа времени
+  if (showTimeBtn) {
+    showTimeBtn.insertAdjacentElement("afterend", timeDisplay);
+    timeDisplay.className = "mt-2 text-light";
+
+    showTimeBtn.addEventListener("click", () => {
+      const now = new Date();
+      const time = now.toLocaleTimeString("ru-RU", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+
+      timeDisplay.textContent = `Текущее время: ${time}`;
+      playClick();
+    });
+  }
+
+
   // === 3. Отображение текущего времени (на всех страницах с id=currentDateTime) ===
   if (currentDateTime) {
     function updateDateTime() {
