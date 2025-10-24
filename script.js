@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-    // === 2.1. Кнопка "Показать время" (только на главной странице) ===
+    // === 2.1. Кнопка "Показать время"===
   const showTimeBtn = document.getElementById("showTimeBtn");
   const timeDisplay = document.createElement("p"); // создаём элемент для показа времени
   if (showTimeBtn) {
@@ -220,3 +220,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+
