@@ -142,12 +142,10 @@ $(document).ready(function () {
     });
   }
 
-  // При нажатии кнопки "Купить"
   $(document).on("click", ".addCartBtn", function () {
     showToast("Товар добавлен в корзину 🛒");
   });
 
-  // При отправке формы подписки
   $("#subscribeInlineForm").on("submit", function (e) {
     e.preventDefault();
     showToast("Спасибо за подписку!");

@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // -----------------------
-  // ✅ 6️⃣ Копирование ТОЛЬКО данных компании
+  //  6️⃣ Копирование ТОЛЬКО данных компании
   // -----------------------
   if (copyEmailBtn && emailText) {
     copyEmailBtn.addEventListener("click", (e) => {
@@ -134,3 +134,15 @@ document.addEventListener("DOMContentLoaded", () => {
   updateTime();
   setInterval(updateTime, 1000);
 });
+// spinner logic for contact form
+const contactForm = document.getElementById("contactForm");
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  document.getElementById("spinner").style.display = "inline-block"; // показать спиннер
+  setTimeout(() => { // имитация отправки
+    document.getElementById("spinner").style.display = "none"; // скрыть спиннер
+    showPopup();
+    contactForm.reset();
+  }, 1000);
+});
+
