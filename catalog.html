@@ -9,150 +9,23 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- Основной стиль -->
+  <link rel="stylesheet" href="catalog.css" />
 
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background-color: #0e0e0e;
-      color: #fff;
-      transition: background-color 0.5s, color 0.5s;
-    }
-
-    .light-theme {
-      background-color: #f4f4f4;
-      color: #111;
-    }
-
-    .navbar {
-      background-color: #000 !important;
-    }
-
-    .navbar .nav-link {
-      color: #fff !important;
-    }
-
-    .navbar .nav-link.active {
-      color: #000 !important;
-      background-color: #d4af37;
-      border-radius: 8px;
-    }
-
-    .carousel-caption h5,
-    .carousel-caption p {
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-    }
-
-    .card {
-      background-color: #1b1b1b;
-      border: none;
-      color: #fff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .light-theme .card {
-      background-color: #fff;
-      color: #000;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
-    }
-
-    .btn-gold {
-      background-color: #d4af37;
-      border: none;
-      color: #000;
-      font-weight: 600;
-    }
-
-    .btn-gold:hover {
-      background-color: #c09b2e;
-    }
-
-    footer {
-      background-color: #000;
-      color: #bbb;
-    }
-
-    .category-btn {
-      display: block;
-      width: 100%;
-      background: transparent;
-      border: none;
-      text-align: left;
-      padding: 10px;
-      color: inherit;
-      font-weight: 500;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .category-btn:hover {
-      color: #d4af37;
-    }
-
-    .popup-form {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .popup-content {
-      background: #fff;
-      color: #000;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-      animation: zoomIn 0.4s ease;
-    }
-
-    @keyframes zoomIn {
-      from {
-        transform: scale(0.5);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      cursor: pointer;
-      color: red;
-    }
-  </style>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-<body>
+
+<body class="catalog-page">
   <!-- Навигация -->
-  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Логотип" width="50" height="50" class="rounded me-2" />
         <span class="fw-bold text-warning fs-4">CloseWant</span>
       </a>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -167,53 +40,26 @@
     </div>
   </nav>
 
-  <!-- Слайдер -->
-  <div id="fashionCarousel" class="carousel slide mt-4 mb-5" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img
-          src="https://www.shoppingschool.ru/netcat_files/147/274/870_1099.jpg"
-          class="d-block w-100"
-          alt="Fashion Banner 1"
-          style="height: 400px; object-fit: cover" />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Новая коллекция 2025</h5>
-          <p>Ощути стиль в каждой детали</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://mazaltovman.ru/wa-data/public/photos/28/21/2128/2128.970.jpg"
-          class="d-block w-100"
-          alt="Fashion Banner 2"
-          style="height: 400px; object-fit: cover" />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Мужская мода</h5>
-          <p>Комфорт и элегантность для каждого дня</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://www.svclassic.ru/upload/iblock/e88/fpgm705qvgdx00eozkzxg2w9huo00k4j.png"
-          class="d-block w-100"
-          alt="Fashion Banner 3"
-          style="height: 400px; object-fit: cover" />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Женская коллекция</h5>
-          <p>Изысканный дизайн и уверенность в себе</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Хедер каталога -->
+  <header class="text-center py-5 bg-dark text-light border-bottom border-warning">
+    <h1 class="fw-bold text-warning">Каталог товаров</h1>
+    <p class="lead text-secondary">Открой стиль, который отражает тебя</p>
 
-  <!-- Контент -->
-  <div class="container my-5">
+    <!-- ====== Task 1 & 2: Search Bar ====== -->
+    <div class="mt-4 position-relative d-inline-block">
+      <input id="searchInput" type="text" class="form-control" placeholder="Поиск по каталогу..." style="max-width:350px;">
+      <ul id="suggestionsList" class="list-group position-absolute w-100 mt-1 shadow" style="display:none; z-index:10;"></ul>
+    </div>
+  </header>
+
+  <!-- Основная часть -->
+  <main class="container my-5">
     <div class="row">
-      <!-- Боковая панель -->
+      <!-- Сайдбар -->
       <aside class="col-lg-3 mb-4">
-        <div class="card shadow-sm">
+        <div class="card bg-black text-light border-0 shadow-sm">
           <div class="card-body">
-            <h5 class="card-title text-warning fw-bold">Категории</h5>
+            <h5 class="text-warning fw-bold mb-3">Категории</h5>
             <button class="category-btn" data-category="all">Все</button>
             <button class="category-btn" data-category="men">Мужская одежда</button>
             <button class="category-btn" data-category="women">Женская одежда</button>
@@ -223,25 +69,14 @@
         </div>
       </aside>
 
-      <!-- Каталог -->
-      <main class="col-lg-9">
-        <h2 class="text-center mb-4 fw-bold text-warning">Каталог товаров</h2>
-        <div id="productContainer" class="row g-4"></div>
-      </main>
+      <!-- Список товаров -->
+      <section class="col-lg-9">
+        <div class="row g-4" id="productContainer"></div>
+      </section>
     </div>
-  </div>
+  </main>
 
-  <!-- Footer -->
-  <footer class="text-center py-4 mt-5">
-    <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
-    <p class="mb-0">Команда проекта: Nurdaulet Omar</p>
-    <p id="currentDateTime" class="mt-2 text-warning"></p>
-  </footer>
-
-  <!-- Кнопка смены темы -->
-  <button id="changeColorBtn" class="btn btn-gold position-fixed bottom-0 end-0 m-4 shadow">Сменить тему</button>
-
-  <!-- Popup -->
+  <!-- Popup окно покупки -->
   <div id="buyPopup" class="popup-form">
     <div class="popup-content position-relative">
       <span id="closeBuyPopup" class="close-btn">&times;</span>
@@ -251,116 +86,22 @@
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="text-center py-4 mt-5 bg-black text-secondary border-top border-dark">
+    <p class="mb-1">&copy; 2025 CloseWant | Все права защищены</p>
+    <p>Команда проекта: Nurdaulet Omar</p>
+    <p id="currentDateTime" class="text-warning mt-2"></p>
+  </footer>
+
+  <!-- Кнопка смены темы -->
+  <button id="changeColorBtn" class="btn btn-gold position-fixed bottom-0 end-0 m-4 shadow">
+    Сменить тему
+  </button>
+
+  <!-- Аудио эффект -->
   <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
-  <script>
-    // === Динамическая загрузка товаров ===
-    const products = [
-      { name: "Брюки CloseWant", price: 4500, category: "men", img: "378754taHLI.avif" },
-      { name: "Пиджак CloseWant", price: 15000, category: "men", img: "358144qoFeB.avif" },
-      { name: "Хлопковая рубашка", price: 12000, category: "men", img: "377609cirKD.avif" },
-      { name: "Спортивная кофта", price: 8000, category: "women", img: "363688KBieE.avif" },
-      { name: "Футболка многослойная", price: 5000, category: "women", img: "374366g6dBs.avif" },
-      { name: "Кожаная сумка", price: 11000, category: "accessories", img: "shop.webp" },
-      { name: "Белые кеды", price: 13000, category: "shoes", img: "shopping.webp" },
-    ];
-
-    const productContainer = document.getElementById("productContainer");
-    const clickSound = document.getElementById("clickSound");
-
-    function displayProducts(filter) {
-      productContainer.innerHTML = "";
-      let filtered = [];
-
-      switch (filter) {
-        case "men":
-          filtered = products.filter((p) => p.category === "men");
-          break;
-        case "women":
-          filtered = products.filter((p) => p.category === "women");
-          break;
-        case "accessories":
-          filtered = products.filter((p) => p.category === "accessories");
-          break;
-        case "shoes":
-          filtered = products.filter((p) => p.category === "shoes");
-          break;
-        default:
-          filtered = products;
-      }
-
-      filtered.forEach((p) => {
-        const card = document.createElement("div");
-        card.className = "col-sm-6 col-md-4";
-        card.innerHTML = `
-          <div class="card h-100 shadow-sm">
-            <img src="${p.img}" class="card-img-top" alt="${p.name}">
-            <div class="card-body text-center">
-              <h5 class="card-title fw-semibold">${p.name}</h5>
-              <p class="card-text text-warning">Цена: ${p.price}₸</p>
-              <button class="btn btn-gold buy-btn">Купить</button>
-            </div>
-          </div>
-        `;
-        productContainer.appendChild(card);
-      });
-
-      addBuyEvents();
-    }
-
-    // === Кнопки категорий ===
-    document.querySelectorAll(".category-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        displayProducts(btn.dataset.category);
-        playClick();
-      });
-    });
-
-    // === Покупка товара ===
-    const buyPopup = document.getElementById("buyPopup");
-    const closeBuyPopup = document.getElementById("closeBuyPopup");
-    const closePopupBtn = document.getElementById("closePopupBtn");
-
-    function addBuyEvents() {
-      document.querySelectorAll(".buy-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          playClick();
-          buyPopup.style.display = "flex";
-        });
-      });
-    }
-
-    closeBuyPopup.addEventListener("click", () => (buyPopup.style.display = "none"));
-    closePopupBtn.addEventListener("click", () => (buyPopup.style.display = "none"));
-    window.addEventListener("click", (e) => {
-      if (e.target === buyPopup) buyPopup.style.display = "none";
-    });
-
-    // === Звук клика ===
-    function playClick() {
-      clickSound.currentTime = 0;
-      clickSound.play().catch(() => {});
-    }
-
-    // === Смена темы ===
-    document.getElementById("changeColorBtn").addEventListener("click", () => {
-      document.body.classList.toggle("light-theme");
-      playClick();
-    });
-
-    // === Отображение текущего времени ===
-    const dateEl = document.getElementById("currentDateTime");
-    setInterval(() => {
-      const now = new Date();
-      dateEl.textContent = now.toLocaleString("ru-RU", {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      });
-    }, 1000);
-
-    // Инициализация
-    displayProducts("all");
-  </script>
+  <!-- Основной JS -->
+  <script src="catalog.js"></script>
 </body>
 </html>

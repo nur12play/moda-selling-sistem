@@ -9,103 +9,137 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <link rel="stylesheet" href="index.css">
 
-  <!-- Header -->
-  <header class="bg-black py-3 sticky-top border-bottom border-secondary">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center text-white">
-      <div class="d-flex align-items-center">
-        <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Логотип" class="me-2 logo-img">
-        <span class="fs-3 fw-bold text-warning">CloseWant</span>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body class="index-page">
+
+  <!-- ===== Scroll Progress Bar ===== -->
+  <div id="scrollProgressContainer">
+    <div id="scrollProgress"></div>
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm sticky-top border-bottom border-secondary">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Логотип" class="logo-img me-2">
+        <span class="fw-bold fs-3 text-warning">CloseWant</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active bg-warning text-black px-3 rounded" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="catalog.html">Каталог</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="about.html">О нас</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="contact.html">Контакты</a></li>
+        </ul>
       </div>
 
-      <nav class="nav nav-pills">
-        <a class="nav-link text-white active bg-warning text-black" href="index.html">Главная</a>
-        <a class="nav-link text-white" href="catalog.html">Каталог</a>
-        <a class="nav-link text-white" href="about.html">О нас</a>
-        <a class="nav-link text-white" href="contact.html">Контакты</a>
-      </nav>
-
-      <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center ms-3">
         <input id="searchInput" type="text" class="form-control me-2" placeholder="Поиск..." style="max-width:200px;">
-        <button id="showTimeBtn" class="btn btn-outline-primary me-2">Показать время</button>
         <a href="#" class="fs-4 me-3 text-decoration-none text-white">🛒</a>
         <a href="#" class="fs-4 text-decoration-none text-white">👤</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero-section">
-    <h1>Новая коллекция <span>2025</span></h1>
-    <p>Стиль. Комфорт. Индивидуальность.</p>
-    <div class="mt-3">
-      <a href="catalog.html" class="btn btn-primary btn-lg me-2">Смотреть коллекцию</a>
-      <a id="openPopupBtn" class="btn btn-outline-primary btn-lg">Подписаться</a>
-    </div>
-    <!-- Fact area (dynamic content example) -->
-    <div id="factBlock" class="mt-4 text-center">
-      <button id="factBtn" class="btn btn-outline-primary mt-3">Показать факт о моде</button>
-      <p id="factDisplay" class="mt-2"></p>
+  <!-- ===== Hero Section ===== -->
+  <section class="hero-section text-center text-white">
+    <div class="container">
+      <h1 class="fw-bold fade-in">Новая коллекция <span class="text-warning">2025</span></h1>
+      <p class="lead fade-in">Стиль. Комфорт. Индивидуальность.</p>
+      <div class="mt-3 fade-in">
+        <a href="catalog.html" class="btn btn-gold btn-lg me-2">Смотреть коллекцию</a>
+        <button id="openPopupBtn" class="btn btn-outline-primary btn-lg">Подписаться</button>
+      </div>
+
+      <!-- Animated Counters -->
+      <div class="container mt-5">
+        <div class="row justify-content-center text-center">
+          <div class="col-md-3">
+            <h2 class="count text-warning" data-count="500">0</h2>
+            <p>Товаров в коллекции</p>
+          </div>
+          <div class="col-md-3">
+            <h2 class="count text-warning" data-count="1200">0</h2>
+            <p>Довольных клиентов</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="factBlock" class="mt-4 text-center">
+        <button id="factBtn" class="btn btn-outline-primary mt-3">Показать факт о моде</button>
+        <p id="factDisplay" class="mt-2"></p>
+      </div>
     </div>
   </section>
 
-  <!-- Popular products -->
+  <!-- ===== Popular Products ===== -->
   <section class="container my-5">
     <div class="text-center mb-4">
       <h2 class="fw-bold text-warning">Популярные товары</h2>
       <p class="text-muted">Откройте для себя стильные новинки сезона</p>
     </div>
-
     <div id="productsRow" class="row g-4">
-      <!-- Products will be rendered here by script.js -->
+      <div class="col-md-4">
+        <img data-src="img/product1.jpg" alt="Платье" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-4">
+        <img data-src="img/product2.jpg" alt="Куртка" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-4">
+        <img data-src="img/product3.jpg" alt="Кроссовки" class="img-fluid rounded shadow">
+      </div>
     </div>
   </section>
 
-  <!-- Subscribe block -->
+  <!-- ===== Subscribe block ===== -->
   <section class="bg-dark py-5 text-center">
     <div class="container">
       <h3 class="mb-3 text-warning">Подпишитесь на новости и скидки</h3>
-      <form class="d-flex flex-column flex-sm-row justify-content-center gap-2" id="subscribeInlineForm">
-        <input id="inlineEmail" type="email" class="form-control" placeholder="Введите ваш email" required style="max-width: 300px;">
-        <button type="submit" class="btn btn-primary px-4">Подписаться</button>
+      <form id="subscribeInlineForm" class="d-flex flex-column flex-sm-row justify-content-center gap-2">
+        <input id="inlineEmail" type="email" class="form-control" placeholder="Введите ваш email" required style="max-width:300px;">
+        <button type="submit" class="btn btn-gold px-4">Подписаться</button>
       </form>
       <p id="inlineFormMsg" class="mt-2 text-light"></p>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ===== Footer ===== -->
   <footer class="text-center py-4">
-    <div class="container">
-      <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
-      <p class="mb-0">Проект выполнен: Nurdaulet Omar </p>
-      <p id="currentDateTime" class="mt-2 text-warning"></p>
-    </div>
+    <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
+    <p class="mb-0">Проект выполнен: Nurdaulet Omar</p>
+    <p id="currentDateTime" class="mt-2 text-warning"></p>
   </footer>
 
-  <!-- Theme change button -->
-  <button id="changeColorBtn" class="btn position-fixed bottom-0 end-0 m-4 shadow">Сменить тему</button>
+  <!-- Theme change -->
+  <button id="changeColorBtn" class="btn btn-gold position-fixed bottom-0 end-0 m-4 shadow">Сменить тему</button>
 
-  <!-- Popup form -->
+  <!-- Popup -->
   <div id="popupForm" class="popup-form" aria-hidden="true">
     <div class="popup-content position-relative">
       <span id="closePopup" class="close-btn">&times;</span>
       <h4>Подпишитесь на новости</h4>
       <form id="popupSubscribeForm">
         <input type="email" id="emailInput" placeholder="Введите email" required class="form-control mb-2">
-        <button type="submit" class="btn btn-primary w-100">Подписаться</button>
+        <button type="submit" class="btn btn-gold w-100">Подписаться</button>
       </form>
       <p id="errorMsg" class="text-danger mt-2"></p>
     </div>
   </div>
 
+  <!-- Click Sound -->
   <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
   <!-- Custom JS -->
-  <script src="script.js"></script>
-  <!-- Bootstrap JS (placed after custom if you don't need to override) -->
+  <script src="index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

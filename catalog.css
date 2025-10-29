@@ -1,0 +1,292 @@
+/* =============================================== */
+/* ⚙️ ОСНОВА                                       */
+/* =============================================== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #0e0e0e;
+  color: #fff;
+  margin: 0;
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+header{
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+              url("369.jpg") center/cover no-repeat;
+}
+
+.light-theme {
+  background-color: #f4f4f4;
+  color: #111;
+}
+
+
+/* =============================================== */
+/* ✨ АНИМАЦИИ                                     */
+/* =============================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* =============================================== */
+/* 🧭 НАВИГАЦИЯ                                    */
+/* =============================================== */
+.navbar {
+  background-color: #111 !important;
+  border-bottom: 2px solid #222;
+}
+.nav-link {
+  color: #fff !important;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.nav-link:hover {
+  color: #d4af37 !important;
+  transform: translateY(-2px);
+}
+.nav-link.active {
+  color: #000 !important;
+  background-color: #d4af37;
+  border-radius: 8px;
+}
+
+/* =============================================== */
+/* 🛒 КАТАЛОГ                                      */
+/* =============================================== */
+body.catalog-page {
+  background-color: #0e0e0e;
+  color: #fff;
+}
+body.catalog-page.light-theme {
+  background-color: #f4f4f4;
+  color: #111;
+}
+
+/* Категории */
+.category-btn {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 10px;
+  color: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.category-btn:hover {
+  color: #d4af37;
+}
+
+/* Карточки */
+#productContainer .card {
+  background-color: #1b1b1b;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#productContainer .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* =============================================== */
+/* 🔍 SEARCH & AUTOCOMPLETE (Part 1 Tasks)        */
+/* =============================================== */
+
+/* Поле поиска */
+#searchInput {
+  background-color: #111;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+#searchInput::placeholder {
+  color: #aaa;
+}
+#searchInput:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* Подсказки */
+/* === Список автоподсказок === */
+#suggestionsList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+#suggestionsList .suggestion-item {
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 12px;
+  transition: all 0.2s ease;
+  background-color: transparent;
+}
+
+#suggestionsList .suggestion-item:hover {
+  background-color: #d4af37;
+  color: #000;
+}
+
+/* Светлая тема */
+.light-theme #suggestionsList {
+  background-color: #f4f4f4;
+  border-color: #ccc;
+}
+.light-theme #suggestionsList .suggestion-item {
+  color: #111;
+}
+.light-theme #suggestionsList .suggestion-item:hover {
+  background-color: #d4af37;
+  color: #000;
+}
+
+/* Светлая тема для подсказок */
+.light-theme #searchInput {
+  background-color: #fff;
+  border-color: #ccc;
+  color: #111;
+}
+.light-theme #suggestionsList {
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.light-theme #suggestionsList .suggestion-item {
+  color: #111;
+}
+.light-theme #suggestionsList .suggestion-item:hover {
+  background-color: #d4af37;
+  color: #000;
+}
+
+/* Подсветка найденных слов */
+mark {
+  background-color: #ffd740;
+  color: #000;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+/* =============================================== */
+/* 🌙 КНОПКА СМЕНЫ ТЕМЫ                            */
+/* =============================================== */
+#changeColorBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(245, 244, 244, 0.3);
+}
+.light-theme #changeColorBtn {
+  background-color: #111;
+  color: #fff;
+}
+
+/* =============================================== */
+/* 🧾 POPUP                                        */
+/* =============================================== */
+.popup-form {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.popup-form.active {
+  display: flex;
+  animation: zoomIn 0.3s ease;
+}
+.popup-content {
+  background: #fff;
+  color: #000;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  text-align: center;
+  position: relative;
+  min-width: 300px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* =============================================== */
+/* 🦶 FOOTER                                       */
+/* =============================================== */
+footer {
+  background-color: #000;
+  color: #ddd;
+  font-size: 0.95rem;
+  padding-top: 20px;
+}
+footer p {
+  margin: 3px 0;
+}
+.light-theme footer {
+  background-color: #fdfdfd;
+  color: #333;
+}
+
+/* =============================================== */
+/* 📱 АДАПТИВНОСТЬ                                */
+/* =============================================== */
+@media (max-width: 768px) {
+  #searchInput { width: 100%; }
+  .product-card img, #productContainer .card img { height: 200px; }
+}
+
+.buy-btn {
+  background-color: #d4af37 !important;
+  color: #000 !important;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+}
+.buy-btn:hover {
+  background-color: #c09b2e !important;
+  transform: scale(1.05);
+  color: #000 !important;
+}
+
+/* Для светлой темы (контрастная версия) */
+.light-theme .buy-btn {
+  background-color: #d4af37 !important;
+  color: #000 !important;
+}

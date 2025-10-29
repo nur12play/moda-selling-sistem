@@ -7,119 +7,61 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
 
   <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background-color: #0e0e0e;
-      color: #fff;
-      transition: background-color 0.5s, color 0.5s;
-    }
-
-    .light-theme {
-      background-color: #f4f4f4;
-      color: #111;
-    }
-
-    .navbar {
-      background-color: #000 !important;
-    }
-
-    .navbar .nav-link {
-      color: #fff !important;
-    }
-
-    .navbar .nav-link.active {
-      color: #000 !important;
-      background-color: #d4af37;
-      border-radius: 8px;
-    }
-
-    .card {
-      background-color: #1b1b1b;
-      color: #fff;
-      border: none;
-    }
-
-    .light-theme .card {
-      background-color: #fff;
-      color: #000;
-    }
-
-    footer {
-      background-color: #000;
-      color: #bbb;
-    }
-
-    .popup-form {
+    /* Spinner */
+    #spinner {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #ff9800;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
     }
 
-    .popup-form.active {
-      display: flex;
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
     }
 
-    .popup-content {
-      background: #fff;
+    /* Toast notifications */
+    .toast-notification {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: #ff9800;
       color: #000;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-      animation: zoomIn 0.4s ease;
-    }
-
-    @keyframes zoomIn {
-      from {
-        transform: scale(0.5);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      cursor: pointer;
-      color: red;
-    }
-
-    /* Анимация появления элементов */
-    .fade-in {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
       opacity: 0;
       transform: translateY(20px);
-      transition: all 0.6s ease;
+      transition: all 0.3s ease;
+      z-index: 9999;
     }
-    .fade-in.show {
+    .toast-notification.show {
       opacity: 1;
       transform: translateY(0);
     }
   </style>
 </head>
+
 <body class="d-flex flex-column min-vh-100">
 
   <!-- Навигация -->
-  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm sticky-top border-bottom border-secondary">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center fw-bold text-warning" href="index.html">
-        <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Logo" class="me-2" style="width:50px; height:50px; border-radius:10px;">
+        <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Logo" class="me-2 logo-img">
         CloseWant
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -130,7 +72,7 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
           <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">О нас</a></li>
-          <li class="nav-item"><a class="nav-link active fw-bold" href="contact.html">Контакты</a></li>
+          <li class="nav-item"><a class="nav-link active bg-warning text-black rounded px-3" href="contact.html">Контакты</a></li>
         </ul>
       </div>
       <div class="d-flex align-items-center">
@@ -142,17 +84,17 @@
   </nav>
 
   <!-- Hero -->
-  <section class="text-center py-5 mb-4 fade-in">
+  <section class="hero text-center py-5 fade-in">
     <div class="container">
       <h1 class="display-5 fw-bold text-warning mb-3">Свяжитесь с нами</h1>
-      <p class="lead text-light">Мы всегда открыты для ваших идей, предложений и отзывов. Напишите нам — и мы обязательно ответим!</p>
+      <p class="lead text-light">Мы всегда открыты для ваших идей, предложений и отзывов.</p>
     </div>
   </section>
 
-  <!-- Основной контент -->
+  <!-- Контент -->
   <main class="container mb-5">
     <div class="row align-items-start">
-      <!-- Форма обратной связи -->
+      <!-- Форма -->
       <div class="col-lg-6 mb-4 fade-in">
         <div class="card shadow-sm border-0">
           <div class="card-body p-4">
@@ -162,32 +104,29 @@
                 <label for="name" class="form-label">Ваше имя</label>
                 <input type="text" class="form-control" id="name" placeholder="Введите ваше имя" required>
               </div>
-
               <div class="mb-3">
                 <label for="email" class="form-label">Ваш email</label>
                 <input type="email" class="form-control" id="email" placeholder="Введите ваш email" required>
               </div>
-
               <div class="mb-3">
                 <label for="message" class="form-label">Сообщение</label>
                 <textarea class="form-control" id="message" rows="4" placeholder="Напишите сообщение..." required></textarea>
               </div>
-
-              <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Отправить сообщение</button>
+              <button type="submit" class="btn btn-gold w-100 py-2 fw-bold">Отправить сообщение</button>
             </form>
           </div>
         </div>
       </div>
 
-      <!-- Контактная информация -->
+      <!-- Контакты -->
       <div class="col-lg-6 mb-4 fade-in">
         <div class="p-4">
           <h3 class="fw-bold mb-3 text-warning">Контактные данные</h3>
-          <p class="text-muted">Свяжитесь с нами любым удобным способом — мы всегда на связи и рады помочь.</p>
+          <p class="text-muted">Вы можете связаться с нами любым удобным способом:</p>
 
           <ul class="list-unstyled">
-            <li class="mb-2"><strong>Email:</strong> support@closewant.com</li>
-            <li class="mb-2"><strong>Телефон:</strong> +7 (777) 369-10-28</li>
+            <li class="mb-2"><strong>Email:</strong> <span id="emailText">support@closewant.com</span> <button id="copyEmailText" class="btn btn-sm btn-warning">📋</button></li>
+            <li class="mb-2"><strong>Телефон:</strong> <span id="phoneText">+7 (777) 369-10-28</span> <button id="copyPhone" class="btn btn-sm btn-warning">📋</button></li>
             <li class="mb-2"><strong>Адрес:</strong> г. Астана, ул. Кайым Мухамедханов 21/2</li>
           </ul>
 
@@ -200,22 +139,22 @@
 
           <div class="mt-5">
             <h5 class="fw-bold mb-3 text-warning">Наше местоположение</h5>
-            <iframe 
-              src="https://www.google.com/maps?q=Астана,+Кайым+Мухамедханов+21/2&output=embed" 
-              width="100%" height="250" style="border:0;" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps?q=Астана,+Кайым+Мухамедханов+21/2&output=embed"
+                    width="100%" height="250" style="border:0;" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
       </div>
     </div>
   </main>
 
+  <!-- Spinner -->
+  <div id="spinner"></div>
+
   <!-- Footer -->
-  <footer class="text-center py-4 mt-auto border-top">
-    <div class="container">
-      <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
-      <p class="mb-0">Команда проекта: Nurdaulet Omar</p>
-      <p id="currentDateTime" class="mt-2 text-warning"></p>
-    </div>
+  <footer class="text-center py-4 mt-auto">
+    <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
+    <p class="mb-0">Команда проекта: Nurdaulet Omar</p>
+    <p id="currentDateTime" class="text-warning mt-2"></p>
   </footer>
 
   <!-- Popup -->
@@ -223,29 +162,17 @@
     <div class="popup-content position-relative text-center">
       <span id="closeSuccess" class="close-btn">&times;</span>
       <h4 class="mb-3">Спасибо!</h4>
-      <p>Ваше сообщение успешно отправлено 💌</p>
-      <button id="closeSuccessBtn" class="btn btn-primary mt-2" type="button">OK</button>
+      <p>Ваше сообщение успешно отправлено </p>
+      <button id="closeSuccessBtn" class="btn btn-gold mt-2">OK</button>
     </div>
   </div>
 
-  <!-- Кнопка смены темы -->
-  <button id="changeColorBtn" class="btn btn-warning position-fixed bottom-0 end-0 m-4 shadow">
-     Сменить тему
-  </button>
+  <!-- Theme Button -->
+  <button id="changeColorBtn" class="btn btn-gold position-fixed bottom-0 end-0 m-4 shadow">Сменить тему</button>
 
   <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
-  <script src="script.js"></script>
-
-  <script>
-    // Анимация появления
-    window.addEventListener("scroll", () => {
-      document.querySelectorAll(".fade-in").forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) el.classList.add("show");
-      });
-    });
-  </script>
-
+  <script src="contact.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
