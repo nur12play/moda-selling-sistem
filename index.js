@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dateEl = document.getElementById("currentDateTime");
   const productsRow = document.getElementById("productsRow");
 
-  /* === Звук клика === */
+  /* === 🔊 Звук клика === */
   function playClick() {
     if (clickSound) {
       clickSound.currentTime = 0;
@@ -17,46 +17,79 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* === Popup open/close === */
+  /* === 💬 Popup open/close === */
   if (openPopupBtn && popupForm && closePopup) {
     openPopupBtn.addEventListener("click", () => {
       popupForm.classList.add("active");
+      popupForm.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
       playClick();
     });
+
     closePopup.addEventListener("click", () => {
       popupForm.classList.remove("active");
+      popupForm.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "auto";
       playClick();
     });
+
     window.addEventListener("click", (e) => {
-      if (e.target === popupForm) popupForm.classList.remove("active");
+      if (e.target === popupForm) {
+        popupForm.classList.remove("active");
+        popupForm.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "auto";
+      }
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        popupForm.classList.remove("active");
+        popupForm.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "auto";
+      }
     });
   }
 
-  /* === Смена темы === */
+  /* === 🌙 Тёмная/светлая тема с LocalStorage === */
   if (changeThemeBtn) {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") document.body.classList.add("light-theme");
+
     changeThemeBtn.addEventListener("click", () => {
       document.body.classList.toggle("light-theme");
+      const currentTheme = document.body.classList.contains("light-theme")
+        ? "light"
+        : "dark";
+      localStorage.setItem("theme", currentTheme);
       playClick();
+      changeThemeBtn.textContent =
+        currentTheme === "light" ? "🌙 Тёмный режим" : "☀️ Светлый режим";
     });
+
+    changeThemeBtn.textContent = document.body.classList.contains("light-theme")
+      ? "🌙 Тёмный режим"
+      : "☀️ Светлый режим";
   }
 
-  /* === Факты о моде === */
+  /* === 👗 Факты о моде === */
   if (factBtn && factDisplay) {
     const fashionFacts = [
       "В среднем человек тратит около 6 лет своей жизни на выбор одежды.",
-      "Черный цвет — самый популярный в моде по всему миру.",
-      "Первая модная неделя прошла в Нью-Йорке в 1943 году.",
+      "Чёрный цвет — самый популярный в моде по всему миру.",
+      "Первая неделя моды прошла в Нью-Йорке в 1943 году.",
       "В Японии белый считается цветом траура, а не чистоты.",
+      "Мода — это искусство выражать себя без слов.",
     ];
 
     factBtn.addEventListener("click", () => {
       const fact = fashionFacts[Math.floor(Math.random() * fashionFacts.length)];
       factDisplay.textContent = fact;
+      factDisplay.classList.add("fade-in", "show");
       playClick();
     });
   }
 
-  /* === Популярные товары === */
+  /* === 🛍️ Популярные товары === */
   if (productsRow) {
     const products = [
       { name: "Пальто CloseWant", price: "35 000 ₸", img: "images/product1.jpeg" },
@@ -69,19 +102,31 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.className = "col-sm-6 col-md-3 fade-in";
       card.innerHTML = `
-        <div class="card h-100 shadow-sm text-center bg-dark text-light border-0">
+        <div class="card h-100 shadow-sm text-center bg-dark text-light border-0" tabindex="0">
           <img data-src="${item.img}" class="card-img-top lazy-img" alt="${item.name}" style="height:250px; object-fit:cover;">
           <div class="card-body">
             <h5 class="card-title">${item.name}</h5>
             <p class="card-text text-warning fw-bold">${item.price}</p>
-            <button class="btn btn-gold addCartBtn">Купить</button>
+            <button class="btn btn-gold addCartBtn" aria-label="Добавить ${item.name} в корзину">Купить</button>
           </div>
         </div>`;
       productsRow.appendChild(card);
     });
+
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      searchInput.addEventListener("input", function () {
+        const query = this.value.toLowerCase();
+        const cards = document.querySelectorAll("#productsRow .card");
+        cards.forEach((card) => {
+          const name = card.querySelector(".card-title").textContent.toLowerCase();
+          card.parentElement.style.display = name.includes(query) ? "block" : "none";
+        });
+      });
+    }
   }
 
-  /* === Время в футере === */
+  /* === ⏰ Время в футере === */
   if (dateEl) {
     setInterval(() => {
       const now = new Date();
@@ -93,20 +138,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 
-  /* === Анимация появления элементов === */
+  /* === ✨ Анимация появления элементов === */
   const fadeElems = document.querySelectorAll(".fade-in");
-  fadeElems.forEach((el) => {
-    setTimeout(() => el.classList.add("show"), 200);
+  fadeElems.forEach((el, i) => {
+    setTimeout(() => el.classList.add("show"), i * 150);
   });
 });
 
 /* =======================================
-   jQuery функционал для Assignment Tasks
-======================================= */
+   jQuery функционал для интерактивных задач
+========================================= */
 $(document).ready(function () {
-  console.log("jQuery is ready!");
+  console.log("✅ jQuery инициализирован");
 
-  /* ===== Task 4: Scroll Progress Bar ===== */
+  /* ===== 📊 Scroll Progress Bar ===== */
   $(window).on("scroll", function () {
     let scrollTop = $(window).scrollTop();
     let docHeight = $(document).height() - $(window).height();
@@ -114,7 +159,7 @@ $(document).ready(function () {
     $("#scrollProgress").css("width", scrollPercent + "%");
   });
 
-  /* ===== Task 5: Animated Number Counter ===== */
+  /* ===== 🔢 Animated Number Counter ===== */
   $(".count").each(function () {
     let $this = $(this);
     let countTo = $this.attr("data-count");
@@ -133,9 +178,9 @@ $(document).ready(function () {
     );
   });
 
-  /* ===== Task 7: Notification Toast ===== */
+  /* ===== 🔔 Notification Toast ===== */
   function showToast(message) {
-    let toast = $('<div class="toast-message">' + message + "</div>");
+    let toast = $('<div class="toast-message" role="status" aria-live="polite">' + message + "</div>");
     $("body").append(toast);
     toast.fadeIn(400).delay(2000).fadeOut(400, function () {
       $(this).remove();
@@ -151,15 +196,75 @@ $(document).ready(function () {
     showToast("Спасибо за подписку!");
   });
 
-  /* ===== Task 9: Lazy Loading Images ===== */
+  /* ===== 💤 Lazy Loading Images ===== */
   $(window).on("scroll", function () {
     $("img[data-src]").each(function () {
       if (
         $(this).offset().top <
-        $(window).scrollTop() + $(window).height() + 100
+        $(window).scrollTop() + $(window).height() + 150
       ) {
         $(this).attr("src", $(this).data("src")).removeAttr("data-src");
       }
     });
   });
+});
+
+/* === 🛒 Корзина === */
+const cartIcon = document.querySelector("a[aria-label='Корзина']");
+const cartModal = document.getElementById("cartModal");
+const closeCart = document.getElementById("closeCart");
+const cartItems = document.getElementById("cartItems");
+const emptyMsg = document.getElementById("emptyCartMsg");
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cartIcon?.addEventListener("click", (e) => {
+  e.preventDefault();
+  renderCart();
+  cartModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+});
+
+closeCart?.addEventListener("click", () => {
+  cartModal.classList.remove("active");
+  document.body.style.overflow = "auto";
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("addCartBtn")) {
+    const card = e.target.closest(".card");
+    const title = card.querySelector(".card-title").textContent;
+    const price = card.querySelector(".card-text").textContent;
+
+    cart.push({ title, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
+});
+
+function renderCart() {
+  cartItems.innerHTML = "";
+  if (cart.length === 0) {
+    emptyMsg.style.display = "block";
+    return;
+  }
+  emptyMsg.style.display = "none";
+  cart.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.className = "list-group-item d-flex justify-content-between align-items-center";
+    li.innerHTML = `
+      <span>${item.title}</span>
+      <span class="text-warning">${item.price}</span>
+      <button class="btn btn-sm btn-danger removeItem" data-index="${index}">✖</button>
+    `;
+    cartItems.appendChild(li);
+  });
+}
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("removeItem")) {
+    const i = e.target.getAttribute("data-index");
+    cart.splice(i, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
 });

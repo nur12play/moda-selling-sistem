@@ -11,48 +11,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="contact.css">
 
-  <style>
-    /* Spinner */
-    #spinner {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
-      border: 5px solid #f3f3f3;
-      border-top: 5px solid #ff9800;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-
-    /* Toast notifications */
-    .toast-notification {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      background: #ff9800;
-      color: #000;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-      z-index: 9999;
-    }
-    .toast-notification.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -74,11 +33,6 @@
           <li class="nav-item"><a class="nav-link" href="about.html">О нас</a></li>
           <li class="nav-item"><a class="nav-link active bg-warning text-black rounded px-3" href="contact.html">Контакты</a></li>
         </ul>
-      </div>
-      <div class="d-flex align-items-center">
-        <input type="text" class="form-control me-2" placeholder="Поиск..." style="max-width:200px;">
-        <a href="#" class="fs-4 me-3 text-decoration-none text-white">🛒</a>
-        <a href="#" class="fs-4 text-decoration-none text-white">👤</a>
       </div>
     </div>
   </nav>

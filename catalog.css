@@ -1,6 +1,3 @@
-/* =============================================== */
-/* ⚙️ ОСНОВА                                       */
-/* =============================================== */
 body {
   font-family: "Poppins", sans-serif;
   background-color: #0e0e0e;
@@ -8,16 +5,25 @@ body {
   margin: 0;
   transition: background-color 0.6s ease, color 0.6s ease;
 }
-header{
+
+/* Фон шапки */
+header {
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
               url("369.jpg") center/cover no-repeat;
 }
 
+/* Светлая тема */
 .light-theme {
   background-color: #f4f4f4;
   color: #111;
 }
 
+/* Светлая тема для хедера */
+.light-theme header {
+  background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.7)),
+              url("369.jpg") center/cover no-repeat;
+  color: #111;
+}
 
 /* =============================================== */
 /* ✨ АНИМАЦИИ                                     */
@@ -30,16 +36,6 @@ header{
 .fade-in.show {
   opacity: 1;
   transform: translateY(0);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
 }
 
 /* =============================================== */
@@ -63,6 +59,19 @@ header{
   border-radius: 8px;
 }
 
+/* Светлая тема для навигации */
+.light-theme .navbar {
+  background-color: #f8f9fa !important;
+  border-bottom: 1px solid #ccc !important;
+}
+.light-theme .nav-link {
+  color: #111 !important;
+}
+.light-theme .nav-link.active {
+  background-color: #d4af37 !important;
+  color: #000 !important;
+}
+
 /* =============================================== */
 /* 🛒 КАТАЛОГ                                      */
 /* =============================================== */
@@ -75,7 +84,7 @@ body.catalog-page.light-theme {
   color: #111;
 }
 
-/* Категории */
+/* Кнопки категорий */
 .category-btn {
   display: block;
   width: 100%;
@@ -86,10 +95,25 @@ body.catalog-page.light-theme {
   color: inherit;
   font-weight: 500;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background 0.3s ease;
+  border-radius: 6px;
 }
 .category-btn:hover {
   color: #d4af37;
+}
+.category-btn.active {
+  background-color: #d4af37;
+  color: #000;
+  font-weight: 600;
+}
+
+/* Светлая тема для категорий */
+.light-theme .category-btn {
+  color: #111;
+}
+.light-theme .category-btn.active {
+  background-color: #d4af37;
+  color: #000;
 }
 
 /* Карточки */
@@ -106,11 +130,19 @@ body.catalog-page.light-theme {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* =============================================== */
-/* 🔍 SEARCH & AUTOCOMPLETE (Part 1 Tasks)        */
-/* =============================================== */
+/* Светлая тема для карточек */
+.light-theme #productContainer .card {
+  background-color: #fff !important;
+  color: #111 !important;
+  border: 1px solid #ddd !important;
+}
+.light-theme #productContainer .card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
-/* Поле поиска */
+/* =============================================== */
+/* 🔍 SEARCH & AUTOCOMPLETE                        */
+/* =============================================== */
 #searchInput {
   background-color: #111;
   border: 1px solid #333;
@@ -128,8 +160,7 @@ body.catalog-page.light-theme {
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
 
-/* Подсказки */
-/* === Список автоподсказок === */
+/* Список подсказок */
 #suggestionsList {
   position: absolute;
   top: 100%;
@@ -150,26 +181,12 @@ body.catalog-page.light-theme {
   transition: all 0.2s ease;
   background-color: transparent;
 }
-
 #suggestionsList .suggestion-item:hover {
   background-color: #d4af37;
   color: #000;
 }
 
-/* Светлая тема */
-.light-theme #suggestionsList {
-  background-color: #f4f4f4;
-  border-color: #ccc;
-}
-.light-theme #suggestionsList .suggestion-item {
-  color: #111;
-}
-.light-theme #suggestionsList .suggestion-item:hover {
-  background-color: #d4af37;
-  color: #000;
-}
-
-/* Светлая тема для подсказок */
+/* Светлая тема для поиска */
 .light-theme #searchInput {
   background-color: #fff;
   border-color: #ccc;
@@ -187,7 +204,7 @@ body.catalog-page.light-theme {
   color: #000;
 }
 
-/* Подсветка найденных слов */
+/* Подсветка совпадений */
 mark {
   background-color: #ffd740;
   color: #000;
@@ -205,7 +222,14 @@ mark {
   border-radius: 30px;
   padding: 10px 20px;
   font-weight: 600;
+  background-color: #d4af37;
+  color: #000;
+  border: none;
   box-shadow: 0 5px 15px rgba(245, 244, 244, 0.3);
+  transition: all 0.3s ease;
+}
+#changeColorBtn:hover {
+  transform: scale(1.05);
 }
 .light-theme #changeColorBtn {
   background-color: #111;
@@ -272,6 +296,9 @@ footer p {
   .product-card img, #productContainer .card img { height: 200px; }
 }
 
+/* =============================================== */
+/* 🛍️ КНОПКИ ПОКУПКИ                              */
+/* =============================================== */
 .buy-btn {
   background-color: #d4af37 !important;
   color: #000 !important;
@@ -284,9 +311,30 @@ footer p {
   transform: scale(1.05);
   color: #000 !important;
 }
-
-/* Для светлой темы (контрастная версия) */
 .light-theme .buy-btn {
   background-color: #d4af37 !important;
   color: #000 !important;
+}
+
+
+.light-theme aside .card {
+  background-color: #fff !important;
+  color: #111 !important;
+  border: 1px solid #ddd !important;
+}
+
+.light-theme aside .card-body {
+  background-color: #fff !important;
+  color: #111 !important;
+}
+
+.light-theme .category-btn {
+  color: #111 !important;
+  background-color: transparent !important;
+  border: none;
+}
+
+.light-theme .category-btn:hover,
+.light-theme .category-btn.active {
+  color: #d4af37 !important;
 }

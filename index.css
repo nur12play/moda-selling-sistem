@@ -1,13 +1,91 @@
-/* ====== Основной стиль ====== */
+/* ============================================
+   Основной стиль — поддержка тёмной и светлой тем
+=============================================== */
 body {
   font-family: "Poppins", sans-serif;
   background-color: #0e0e0e;
   color: #fff;
   margin: 0;
   transition: background-color 0.6s, color 0.6s;
+  line-height: 1.6;
 }
 
-/* ====== Логотип ====== */
+/* ====== Светлая тема (сохраняется в LocalStorage) ====== */
+.light-theme {
+  background-color: #f4f4f4;
+  color: #111;
+}
+
+/* Футер */
+.light-theme footer {
+  background-color: #fafafa;
+  color: #111;
+}
+
+/* Hero section и текст внутри */
+.light-theme .hero-section {
+  background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+              url('5595786.jpg') center/cover no-repeat;
+  color: #111 !important;
+}
+
+/* Заставляем все заголовки и параграфы внутри hero-section стать чёрными */
+.light-theme .hero-section h1,
+.light-theme .hero-section h2,
+.light-theme .hero-section h3,
+.light-theme .hero-section p,
+.light-theme .hero-section span {
+  color: #111 !important;
+}
+
+/* Кнопки */
+.light-theme .btn-gold {
+  background-color: #e5c04d;
+  color: #111;
+}
+.light-theme .btn-gold:hover {
+  background-color: #caa93e;
+}
+
+/* Popup */
+.light-theme .popup-content {
+  background-color: #fff !important;
+  color: #111 !important;
+}
+
+/* Тихие надписи */
+.light-theme .text-muted {
+  color: #444 !important;
+}
+
+/* Навигация */
+.light-theme .nav-link {
+  color: #111 !important;
+}
+.light-theme .navbar {
+  background-color: #f8f9fa !important;
+  border-bottom: 1px solid #ccc !important;
+}
+
+/* Карточки */
+.light-theme .card {
+  background-color: #ffffff !important;
+  color: #111 !important;
+  border: 1px solid #ddd !important;
+}
+
+/* Поддержка любых заголовков и параграфов на других секциях */
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4,
+.light-theme p {
+  color: #111 !important;
+}
+
+/* ============================================
+   Логотип
+=============================================== */
 .logo-img {
   width: 55px;
   height: 55px;
@@ -15,7 +93,9 @@ body {
   object-fit: cover;
 }
 
-/* ====== Hero Section ====== */
+/* ============================================
+   Hero Section
+=============================================== */
 .hero-section {
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
               url('5595786.jpg') center/cover no-repeat;
@@ -23,22 +103,9 @@ body {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* ====== Светлая тема ====== */
-.light-theme {
-  background-color: #f4f4f4;
-  color: #111;
-}
-.light-theme footer {
-  background-color: #fdfdfd;
-  color: #000;
-}
-.light-theme .hero-section {
-  background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
-              url('5595786.jpg') center/cover no-repeat;
-  color: #111;
-}
-
-/* ====== Кнопки ====== */
+/* ============================================
+   Кнопки
+=============================================== */
 .btn-gold {
   background-color: #d4af37;
   color: #000;
@@ -49,8 +116,13 @@ body {
   background-color: #c09b2e;
   transform: scale(1.05);
 }
+.btn-gold:active {
+  transform: scale(0.98);
+}
 
-/* ====== Popup ====== */
+/* ============================================
+   Popup
+=============================================== */
 .popup-form {
   display: none;
   position: fixed;
@@ -72,6 +144,8 @@ body {
   border-radius: 10px;
   text-align: center;
   position: relative;
+  max-width: 400px;
+  width: 90%;
 }
 .close-btn {
   position: absolute;
@@ -82,32 +156,19 @@ body {
   color: red;
 }
 
-/* ====== Footer ====== */
+/* ============================================
+   Footer
+=============================================== */
 footer {
   background-color: #000;
   color: #bbb;
+  text-align: center;
+  padding: 20px;
 }
 
-/* ====== Анимации появления ====== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s, transform 0.6s;
-}
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* ===============================
-   Assignment 7 — jQuery Tasks
-================================ */
-
-/* === Task 4: Scroll Progress Bar === */
+/* ============================================
+   Scroll Progress Bar
+=============================================== */
 #scrollProgressContainer {
   position: fixed;
   top: 0;
@@ -124,7 +185,9 @@ footer {
   transition: width 0.2s linear;
 }
 
-/* === Task 5: Animated Number Counter === */
+/* ============================================
+   Animated Counters
+=============================================== */
 .count {
   font-size: 2.5rem;
   font-weight: 700;
@@ -132,7 +195,9 @@ footer {
   text-shadow: 0 0 10px rgba(255,193,7,0.4);
 }
 
-/* === Task 7: Notification Toast === */
+/* ============================================
+   Notification Toast
+=============================================== */
 .toast-message {
   position: fixed;
   bottom: 30px;
@@ -153,7 +218,9 @@ footer {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* === Task 9: Lazy Loading Image Style === */
+/* ============================================
+   Lazy Loading Image Style
+=============================================== */
 .lazy-img {
   opacity: 0;
   transition: opacity 0.6s ease;
@@ -162,7 +229,47 @@ footer {
   opacity: 1;
 }
 
-/* ====== Дополнительные улучшения ====== */
-.btn-gold:active {
-  transform: scale(0.98);
+/* ============================================
+   Анимации появления
+=============================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ============================================
+   Кнопка смены темы
+=============================================== */
+#changeColorBtn {
+  border-radius: 50px;
+  font-weight: 600;
+  background-color: #d4af37;
+  color: #000;
+}
+#changeColorBtn:hover {
+  background-color: #c09b2e;
+}
+
+/* ============================================
+   Адаптивность
+=============================================== */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 4rem 1rem;
+  }
+  .count {
+    font-size: 2rem;
+  }
+  .popup-content {
+    width: 95%;
+  }
 }

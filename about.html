@@ -10,6 +10,9 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="about.css" />
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body class="about-page d-flex flex-column min-vh-100">
@@ -32,10 +35,11 @@
           <li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>
         </ul>
       </div>
-      <div class="d-flex align-items-center">
-        <input type="text" class="form-control me-2" placeholder="Поиск..." style="max-width: 200px;" />
-        <a href="#" class="fs-4 me-3 text-decoration-none text-white">🛒</a>
-        <a href="#" class="fs-4 text-decoration-none text-white">👤</a>
+
+      <!-- Поиск и корзина -->
+      <div class="d-flex align-items-center position-relative">
+        <ul id="suggestionsList" class="list-group position-absolute" style="top: 40px; left: 0; display:none; width:200px;"></ul>
+        <a href="#" id="cartBtn" class="fs-4 me-3 text-decoration-none text-white">🛒</a>
       </div>
     </div>
   </nav>
@@ -46,7 +50,6 @@
       <h1 class="display-5 fw-bold fade-in">О нас</h1>
       <p class="lead fade-in">Мода, рожденная из стиля, комфорта и уверенности.</p>
 
-      <!-- Animated Counter placeholder -->
       <div class="counter-container mt-3 fade-in">
         <div class="counter fs-3 fw-bold text-warning" data-target="10">0</div>
         <span class="text-white ms-2">лет опыта</span>
@@ -135,6 +138,16 @@
     </div>
   </section>
 
+  <!-- Popup корзины -->
+  <div id="buyPopup" class="popup-form">
+    <div class="popup-content position-relative">
+      <span id="closeBuyPopup" class="close-btn">&times;</span>
+      <h4>Корзина</h4>
+      <p>У вас пока нет товаров в корзине.</p>
+      <button id="closePopupBtn" class="btn btn-gold mt-2">OK</button>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="text-center py-4 mt-auto">
     <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
@@ -147,7 +160,7 @@
 
   <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
-  <!-- Custom JS -->
+  <!-- JS -->
   <script src="about.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
