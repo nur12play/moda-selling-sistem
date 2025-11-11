@@ -15,47 +15,48 @@ body {
   color: #111;
 }
 
-    #spinner {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
-      border: 5px solid #f3f3f3;
-      border-top: 5px solid #ff9800;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-    }
+#spinner {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #ff9800;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
 
-    @keyframes spin {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
 
-    /* Toast notifications */
-    .toast-notification {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      background: #ff9800;
-      color: #000;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-      z-index: 9999;
-    }
-    .toast-notification.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* Toast notifications */
+.toast-notification {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: #ff9800;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+.toast-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* =============================================== */
-/* 🧭 НАВИГАЦИЯ                                    */
+/* 🧭 НАВИГАЦИЯ - ИСПРАВЛЕН TOGGLER                */
 /* =============================================== */
 .logo-img {
   width: 45px;
@@ -67,13 +68,42 @@ body {
 .logo-img:hover {
   transform: scale(1.05);
 }
+
 .navbar {
   background-color: #000 !important;
   border-bottom: 2px solid #222;
+  padding: 0.8rem 1rem;
 }
+
+/* Стили для toggler в темной теме */
+.navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.3rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.5);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  width: 1.2em;
+  height: 1.2em;
+}
+
+/* Стили для toggler в светлой теме */
+.light-theme .navbar-toggler {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.light-theme .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 .nav-link {
   color: #fff !important;
   transition: color 0.3s ease, transform 0.3s ease;
+  padding: 0.5rem 1rem !important;
 }
 .nav-link:hover {
   color: #d4af37 !important;
@@ -84,6 +114,7 @@ body {
   color: #000 !important;
   border-radius: 6px;
 }
+
 .light-theme .navbar {
   background-color: #fff !important;
   border-bottom: 1px solid #ddd;
@@ -97,7 +128,7 @@ body {
 }
 
 /* =============================================== */
-/* 🌆 HERO                                         */
+/* 🌆 HERO - УЛУЧШЕННАЯ АДАПТИВНОСТЬ              */
 /* =============================================== */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
@@ -106,7 +137,13 @@ body {
   padding: 100px 20px;
   text-align: center;
   animation: fadeIn 1.2s ease-in-out;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .light-theme .hero {
   background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.8)),
               url("contact-bg.jpg") center/cover no-repeat;
@@ -118,7 +155,7 @@ body {
 }
 
 /* =============================================== */
-/* 🧾 ФОРМА ОБРАТНОЙ СВЯЗИ                        */
+/* 🧾 ФОРМА ОБРАТНОЙ СВЯЗИ - АДАПТИВНАЯ           */
 /* =============================================== */
 .card {
   background-color: #1a1a1a;
@@ -126,6 +163,7 @@ body {
   border-radius: 12px;
   border: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1.5rem;
 }
 .card:hover {
   transform: scale(1.02);
@@ -143,8 +181,9 @@ body {
   border: 1px solid #333;
   color: #fff;
   border-radius: 8px;
-  padding: 10px;
+  padding: 12px 15px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
 }
 .form-control:focus {
   border-color: #d4af37;
@@ -163,6 +202,9 @@ body {
   border: none;
   font-weight: 600;
   transition: all 0.3s ease;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
 }
 .btn-gold:hover {
   background-color: #c09b2e;
@@ -174,27 +216,43 @@ body {
 }
 
 /* =============================================== */
-/* 📍 КОНТАКТНЫЕ ДАННЫЕ                            */
+/* 📍 КОНТАКТНЫЕ ДАННЫЕ - АДАПТИВНЫЕ              */
 /* =============================================== */
-ul li {
-  font-size: 1rem;
+.contact-info {
+  padding: 1rem 0;
 }
-ul li button {
+
+.contact-info ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.contact-info li {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-info li button {
   background-color: #d4af37;
   border: none;
   color: #000;
   border-radius: 5px;
-  padding: 2px 6px;
+  padding: 6px 12px;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
-ul li button:hover {
+.contact-info li button:hover {
   background-color: #c09b2e;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* =============================================== */
-/* 🧊 POPUP                                        */
+/* 🧊 POPUP - АДАПТИВНЫЙ                         */
 /* =============================================== */
 .popup-form {
   display: none;
@@ -205,6 +263,7 @@ ul li button:hover {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 1rem;
 }
 .popup-form.active {
   display: flex;
@@ -218,7 +277,9 @@ ul li button:hover {
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   text-align: center;
   position: relative;
-  min-width: 300px;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 .close-btn {
   position: absolute;
@@ -226,23 +287,38 @@ ul li button:hover {
   font-size: 1.5rem;
   cursor: pointer;
   color: #333;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* =============================================== */
-/* 🦶 FOOTER                                       */
+/* 🦶 FOOTER - АДАПТИВНЫЙ                        */
 /* =============================================== */
 footer {
   background-color: #000;
   color: #bbb;
   font-size: 0.95rem;
+  padding: 2rem 0 1rem;
 }
 .light-theme footer {
   background-color: #fdfdfd;
   color: #111;
 }
 
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 /* =============================================== */
-/* 🌙 КНОПКА СМЕНЫ ТЕМЫ                            */
+/* 🌙 КНОПКА СМЕНЫ ТЕМЫ - АДАПТИВНАЯ             */
 /* =============================================== */
 #changeColorBtn {
   position: fixed;
@@ -253,6 +329,9 @@ footer {
   font-weight: 600;
   box-shadow: 0 5px 15px rgba(245, 244, 244, 0.3);
   z-index: 999;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 .light-theme #changeColorBtn {
   background-color: #111;
@@ -260,7 +339,7 @@ footer {
 }
 
 /* =============================================== */
-/* ✨ АНИМАЦИИ И ЭФФЕКТЫ                          */
+/* ✨ АНИМАЦИИ И ЭФФЕКТЫ                         */
 /* =============================================== */
 .fade-in {
   opacity: 0;
@@ -282,10 +361,233 @@ footer {
 }
 
 /* =============================================== */
-/* 📱 АДАПТИВНОСТЬ                                */
+/* 📱 УЛУЧШЕННАЯ АДАПТИВНОСТЬ                   */
 /* =============================================== */
+
+/* Планшеты и маленькие ноутбуки */
+@media (max-width: 992px) {
+  .hero {
+    padding: 80px 20px;
+    min-height: 50vh;
+  }
+  
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-info li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Планшеты (меньшие) */
 @media (max-width: 768px) {
-  .hero { padding: 60px 15px; }
-  .card { margin-bottom: 20px; }
-  iframe { height: 200px; }
+  .hero {
+    padding: 60px 15px;
+    min-height: 40vh;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .navbar {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .nav-link {
+    padding: 0.5rem 0.8rem !important;
+    font-size: 0.95rem;
+  }
+  
+  .form-control {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+  
+  .btn-gold {
+    padding: 10px 25px;
+    font-size: 0.95rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  .popup-content {
+    padding: 20px 15px;
+    width: 95%;
+  }
+  
+  .contact-info li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .contact-info li button {
+    align-self: flex-start;
+  }
+  
+  #changeColorBtn {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .toast-notification {
+    bottom: 70px;
+    right: 15px;
+    left: 15px;
+    text-align: center;
+  }
+}
+
+/* Мобильные телефоны */
+@media (max-width: 576px) {
+  .hero {
+    padding: 50px 12px;
+    min-height: 35vh;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+  
+  .logo-img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .navbar-toggler {
+    padding: 0.25rem 0.4rem;
+  }
+  
+  /* Улучшенное мобильное меню */
+  .navbar-collapse {
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  .light-theme .navbar-collapse {
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .nav-link {
+    padding: 0.8rem 1rem !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .light-theme .nav-link {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+    border-radius: 10px;
+  }
+  
+  .form-control {
+    padding: 12px;
+    font-size: 16px; /* Убирает увеличение в iOS */
+  }
+  
+  .popup-content {
+    width: 100%;
+    margin: 0.5rem;
+    padding: 20px;
+  }
+  
+  footer {
+    padding: 1.5rem 0 1rem;
+    text-align: center;
+  }
+  
+  .footer-content {
+    gap: 1rem;
+  }
+  
+  #changeColorBtn {
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Очень маленькие телефоны */
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+  }
+  
+  .navbar-brand span {
+    font-size: 0.9rem;
+  }
+  
+  .logo-img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .popup-content {
+    padding: 15px;
+  }
+  
+  .close-btn {
+    top: 5px;
+    right: 10px;
+    font-size: 1.3rem;
+  }
+  
+  #changeColorBtn {
+    bottom: 8px;
+    right: 8px;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Ландшафтная ориентация на мобильных */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: 70vh;
+    padding: 40px 20px;
+  }
+  
+  .navbar {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .popup-form {
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
 }

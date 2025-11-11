@@ -1,145 +1,156 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Главная | CloseWant</title>
+  <meta name="description" content="CloseWant - магазин модной одежды">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-  <!-- Custom CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="index.css">
 
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- JS -->
+  <script src="index.js" defer></script>
 </head>
-<body class="index-page">
 
-  <!-- ===== Scroll Progress Bar ===== -->
-  <div id="scrollProgressContainer" aria-hidden="true">
-    <div id="scrollProgress"></div>
+<body class="bg-dark text-white">
+  <!-- Scroll Progress -->
+  <div id="scrollProgressContainer" class="scroll-progress-container">
+    <div id="scrollProgress" class="scroll-progress"></div>
   </div>
 
-  <!-- ===== Header ===== -->
-  <header class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm sticky-top border-bottom border-secondary">
+  <!-- Header -->
+  <header class="header">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Логотип CloseWant" class="logo-img me-2">
-        <span class="fw-bold fs-3 text-warning">CloseWant</span>
-      </a>
+      <div class="header-content">
+        <a href="index.html" class="navbar-brand">
+          <img src="Lucid_Origin_Exquisite_high_fashion.jpg" alt="Логотип CloseWant" class="logo-img">
+          <span class="brand-text">CloseWant</span>
+        </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Открыть меню">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link active bg-warning text-black px-3 rounded" href="index.html">Главная</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="catalog.html">Каталог</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="about.html">О нас</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="contact.html">Контакты</a></li>
-        </ul>
-      </div>
-
-      <div class="d-flex align-items-center ms-3">
-        <input id="searchInput" type="text" class="form-control me-2" placeholder="Поиск..." style="max-width:200px;" aria-label="Поиск товаров">
-        <a href="#" class="fs-4 me-3 text-decoration-none text-white" aria-label="Корзина">🛒</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===== Hero Section ===== -->
-  <section class="hero-section text-center text-white" role="banner">
-    <div class="container">
-      <h1 class="fw-bold fade-in">Новая коллекция <span class="text-warning">2025</span></h1>
-      <p class="lead fade-in">Стиль. Комфорт. Индивидуальность.</p>
-      <div class="mt-3 fade-in">
-        <a href="catalog.html" class="btn btn-gold btn-lg me-2">Смотреть коллекцию</a>
-        <button id="openPopupBtn" class="btn btn-outline-primary btn-lg">Подписаться</button>
-      </div>
-
-      <!-- Animated Counters -->
-      <div class="container mt-5">
-        <div class="row justify-content-center text-center">
-          <div class="col-md-3">
-            <h2 class="count text-warning" data-count="500">0</h2>
-            <p>Товаров в коллекции</p>
+        <div class="nav-section">
+          <!-- Desktop Navigation -->
+          <nav class="desktop-nav">
+            <a href="index.html" class="nav-link active">Главная</a>
+            <a href="catalog.html" class="nav-link">Каталог</a>
+            <a href="about.html" class="nav-link">О нас</a>
+            <a href="contact.html" class="nav-link">Контакты</a>
+          </nav>
+          
+          <!-- Search and Cart -->
+          <div class="header-actions">
+            <input type="text" placeholder="Поиск..." class="form-input search-input">
+            <button id="cartIcon" class="cart-icon" aria-label="Корзина">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
           </div>
-          <div class="col-md-3">
-            <h2 class="count text-warning" data-count="1200">0</h2>
-            <p>Довольных клиентов</p>
-          </div>
+          
+          <!-- Mobile Menu Button -->
+          <button class="mobile-menu-btn" aria-label="Открыть меню">
+            <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
         </div>
       </div>
 
-      <!-- Fashion Fact -->
-      <div id="factBlock" class="mt-4 text-center">
-        <button id="factBtn" class="btn btn-outline-primary mt-3">Показать факт о моде</button>
-        <p id="factDisplay" class="mt-2"></p>
+      <!-- Mobile Navigation -->
+      <nav class="mobile-nav">
+        <a href="index.html" class="nav-link active">Главная</a>
+        <a href="catalog.html" class="nav-link">Каталог</a>
+        <a href="about.html" class="nav-link">О нас</a>
+        <a href="contact.html" class="nav-link">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-bg">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title fade-in">Новая коллекция <span class="highlight">2025</span></h1>
+        <p class="hero-subtitle fade-in">Стиль. Комфорт. Индивидуальность.</p>
+        
+        <div class="hero-actions fade-in">
+          <a href="catalog.html" class="btn btn-hero-primary">Смотреть коллекцию</a>
+          <button id="openPopupBtn" class="btn btn-hero-secondary">Подписаться</button>
+        </div>
+
+        <!-- Counters -->
+        <div class="counters-section fade-in">
+          <div class="counter-item">
+            <h2 class="count" data-count="500">0</h2>
+            <p>Товаров в коллекции</p>
+          </div>
+          <div class="counter-item">
+            <h2 class="count" data-count="1200">0</h2>
+            <p>Довольных клиентов</p>
+          </div>
+        </div>
+
+        <!-- Fashion Fact -->
+        <div class="fashion-fact fade-in">
+          <button id="factBtn" class="btn btn-fact">Показать факт о моде</button>
+          <p id="factDisplay" class="fact-text"></p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Popular Products ===== -->
-  <section class="container my-5">
-    <div class="text-center mb-4">
-      <h2 class="fw-bold text-warning">Популярные товары</h2>
-      <p class="text-muted">Откройте для себя стильные новинки сезона</p>
-    </div>
-    <div id="productsRow" class="row g-4"></div>
-  </section>
-
-  <!-- ===== Subscribe block ===== -->
-  <section class="bg-dark py-5 text-center">
+  <!-- Popular Products -->
+  <section class="products-section">
     <div class="container">
-      <h3 class="mb-3 text-warning">Подпишитесь на новости и скидки</h3>
-      <form id="subscribeInlineForm" class="d-flex flex-column flex-sm-row justify-content-center gap-2" aria-label="Форма подписки на новости">
-        <input id="inlineEmail" type="email" class="form-control" placeholder="Введите ваш email" required style="max-width:300px;" aria-required="true">
-        <button type="submit" class="btn btn-gold px-4">Подписаться</button>
-      </form>
-      <p id="inlineFormMsg" class="mt-2 text-light"></p>
+      <div class="section-title fade-in">
+        <h2>Популярные товары</h2>
+        <p>Откройте для себя стильные новинки сезона</p>
+      </div>
+      <div class="products-grid" id="productsRow"></div>
     </div>
   </section>
 
-  <!-- ===== Корзина ===== -->
-<div id="cartModal" class="popup-form" aria-hidden="true" aria-modal="true" role="dialog">
-  <div class="popup-content position-relative">
-    <span id="closeCart" class="close-btn" aria-label="Закрыть корзину">&times;</span>
-    <h4>Ваша корзина</h4>
-    <ul id="cartItems" class="list-group mb-3 text-start"></ul>
-    <p id="emptyCartMsg" class="text-muted">Корзина пуста</p>
-  </div>
-</div>
+  <!-- Subscribe Section -->
+  <section class="subscribe-section">
+    <div class="container">
+      <div class="subscribe-content">
+        <h3 class="subscribe-title">Подпишитесь на новости и скидки</h3>
+        <form class="subscribe-form">
+          <input type="email" placeholder="Введите ваш email" class="form-input email-input" required>
+          <button type="submit" class="btn btn-subscribe">Подписаться</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-  <!-- ===== Footer ===== -->
-  <footer class="text-center py-4">
-    <p class="mb-1">© 2025 CloseWant | Все права защищены</p>
-    <p class="mb-0">Проект выполнен: <strong>Nurdaulet Omar</strong></p>
-    <p id="currentDateTime" class="mt-2 text-warning"></p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">© 2025 CloseWant | Все права защищены</p>
+        <p class="footer-text">Проект выполнен: <strong class="highlight">Nurdaulet Omar</strong></p>
+        <p id="currentDateTime" class="footer-date"></p>
+      </div>
+    </div>
   </footer>
 
-  <!-- ===== Theme Switch Button ===== -->
-  <button id="changeColorBtn" class="btn btn-gold position-fixed bottom-0 end-0 m-4 shadow" aria-label="Переключить тему">Сменить тему</button>
+  <!-- Theme Toggle Button -->
+  <button id="changeColorBtn" class="theme-toggle-btn" aria-label="Переключить тему">
+    <i class="fas fa-moon"></i>
+  </button>
 
-  <!-- ===== Popup ===== -->
-  <div id="popupForm" class="popup-form" aria-hidden="true" aria-modal="true" role="dialog">
-    <div class="popup-content position-relative">
-      <span id="closePopup" class="close-btn" aria-label="Закрыть окно">&times;</span>
-      <h4>Подпишитесь на новости</h4>
-      <form id="popupSubscribeForm" aria-label="Форма подписки">
-        <input type="email" id="emailInput" placeholder="Введите email" required class="form-control mb-2" aria-required="true">
-        <button type="submit" class="btn btn-gold w-100">Подписаться</button>
+  <!-- Popup Form -->
+  <div id="popupForm" class="popup-form" aria-hidden="true">
+    <div class="popup-content">
+      <button id="closePopup" class="close-btn" aria-label="Закрыть окно">&times;</button>
+      <h4 class="popup-title">Подпишитесь на новости</h4>
+      <form id="popupSubscribeForm" class="popup-form-content">
+        <input type="email" id="emailInput" placeholder="Введите email" required class="form-input popup-input">
+        <button type="submit" class="btn btn-popup">Подписаться</button>
       </form>
-      <p id="errorMsg" class="text-danger mt-2"></p>
+      <p id="errorMsg" class="error-message"></p>
     </div>
   </div>
-
-  <!-- Click Sound -->
-  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
-
-  <!-- ===== Scripts ===== -->
-  <script src="index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

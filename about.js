@@ -8,28 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.querySelector(".form-control[placeholder='Поиск...']");
   const cartIcon = document.querySelector("a.fs-4.me-3.text-decoration-none.text-white");
   
-  /* 🛒 Создаём popup корзины */
-  const cartModal = document.createElement("div");
-  cartModal.id = "cartModal";
-  cartModal.className = "popup-form";
-  cartModal.innerHTML = `
-    <div class="popup-content position-relative">
-      <span id="closeCart" class="close-btn">&times;</span>
-      <h4>Ваша корзина</h4>
-      <ul id="cartItems" class="list-group my-3"></ul>
-      <p id="emptyCartMsg" class="text-muted">Корзина пуста</p>
-      <button id="clearCart" class="btn btn-danger w-100 mt-2">Очистить корзину</button>
-    </div>
-  `;
-  document.body.appendChild(cartModal);
-
-  const closeCart = document.getElementById("closeCart");
-  const cartItems = document.getElementById("cartItems");
-  const emptyCartMsg = document.getElementById("emptyCartMsg");
-  const clearCart = document.getElementById("clearCart");
-
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
   // === 🔊 Клик звук ===
   function playClick() {
     if (clickSound) {
@@ -104,71 +82,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".fade-in").forEach((el, i) => {
     setTimeout(() => el.classList.add("show"), 200 * i);
-  });
-
-  // === 🛒 Корзина ===
-  function renderCart() {
-    cartItems.innerHTML = "";
-    if (cart.length === 0) {
-      emptyCartMsg.style.display = "block";
-    } else {
-      emptyCartMsg.style.display = "none";
-      cart.forEach((item, i) => {
-        const li = document.createElement("li");
-        li.className = "list-group-item d-flex justify-content-between align-items-center";
-        li.innerHTML = `
-          <span>${item.title}</span>
-          <span class="text-warning">${item.price}</span>
-          <button class="btn btn-sm btn-danger removeItem" data-index="${i}">✖</button>
-        `;
-        cartItems.appendChild(li);
-      });
-    }
-  }
-
-  // Добавление товара (пример из каталога)
-  document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("buy-btn")) {
-      const card = e.target.closest(".card");
-      const title = card.querySelector(".card-title").textContent;
-      const price = card.querySelector(".card-text")?.textContent || "—";
-      cart.push({ title, price });
-      localStorage.setItem("cart", JSON.stringify(cart));
-      renderCart();
-      playClick();
-    }
-  });
-
-  // Открытие/закрытие корзины
-  cartIcon?.addEventListener("click", (e) => {
-    e.preventDefault();
-    renderCart();
-    cartModal.classList.add("active");
-    document.body.style.overflow = "hidden";
-    playClick();
-  });
-  closeCart?.addEventListener("click", () => {
-    cartModal.classList.remove("active");
-    document.body.style.overflow = "auto";
-  });
-  window.addEventListener("click", (e) => {
-    if (e.target === cartModal) cartModal.classList.remove("active");
-  });
-
-  // Очистка корзины
-  clearCart.addEventListener("click", () => {
-    cart = [];
-    localStorage.removeItem("cart");
-    renderCart();
-    playClick();
-  });
-
-  document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("removeItem")) {
-      const index = e.target.dataset.index;
-      cart.splice(index, 1);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      renderCart();
-    }
   });
 });
